@@ -7,7 +7,9 @@ This desktop app made in Java helps you to understand Algorithms by letting you 
 Clone the repo and run 
 
 ```
-	java HomeScreen.java
+javac HomeScreen.java
+
+java HomeScreen.java
 ```
 
 on the terminal in the directory where you have cloned the repo.
