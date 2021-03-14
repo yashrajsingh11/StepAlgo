@@ -33,7 +33,7 @@ public class BubbleSortQuiz {
 
     	q1 = new JLabel("1) What Is The Time Complexity Of Bubble Sort?");
     	q1.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q1.setBounds(100, 100, 600, 40);
+        q1.setBounds(100, 100, 900, 40);
 
         rb11 = new JRadioButton("O(n)");
 		rb11.setBounds(100, 150, 300, 40);
@@ -59,7 +59,7 @@ public class BubbleSortQuiz {
 
     	q2 = new JLabel("2) Which Two Numbers Will Be Swapped First In The Array- 2 4 1 5 3 ?");
     	q2.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q2.setBounds(100, 200, 600, 40);
+        q2.setBounds(100, 200, 900, 40);
 
         rb21 = new JRadioButton("4 and 3");
 		rb21.setBounds(100, 250, 300, 40);
@@ -85,7 +85,7 @@ public class BubbleSortQuiz {
 
 		q3 = new JLabel("Question 3 Here");
     	q3.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q3.setBounds(100, 300, 600, 40);
+        q3.setBounds(100, 300, 900, 40);
 
         rb31 = new JRadioButton("Option 1");
 		rb31.setBounds(100, 350, 300, 40);
@@ -111,7 +111,7 @@ public class BubbleSortQuiz {
 
 		q4 = new JLabel("Question 4 Here");
     	q4.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q4.setBounds(100, 400, 600, 40);
+        q4.setBounds(100, 400, 900, 40);
 
         rb41 = new JRadioButton("Option 1");
 		rb41.setBounds(100, 450, 300, 40);
@@ -137,7 +137,7 @@ public class BubbleSortQuiz {
 
 		q5 = new JLabel("Question 5 Here");
     	q5.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q5.setBounds(100, 500, 600, 40);
+        q5.setBounds(100, 500, 900, 40);
 
         rb51 = new JRadioButton("Option 1");
 		rb51.setBounds(100, 550, 300, 40);

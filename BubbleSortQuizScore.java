@@ -11,7 +11,7 @@ public class BubbleSortQuizScore {
 
 	JFrame f;
 	JLabel l1, l2;
-	JButton b1, b2, b3, b4;
+	JButton b1, b2, b3, b4, b5;
 	String data;
 
 	public BubbleSortQuizScore() {
@@ -44,15 +44,19 @@ public class BubbleSortQuizScore {
 
     	b2 = new JButton("Return To Algorithm");  
     	b2.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b2.setBounds(315, 620, 250, 40);
+    	b2.setBounds(315, 550, 250, 40);
 
     	b3 = new JButton("Return To Main Menu");  
     	b3.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b3.setBounds(830, 620, 250, 40);
+    	b3.setBounds(315, 620, 250, 40);
 
     	b4 = new JButton("Exit");  
         b4.setFont(new Font("Verdana", Font.PLAIN, 18));
-        b4.setBounds(620, 620, 150, 40);
+        b4.setBounds(830, 620, 250, 40);
+
+        b5 = new JButton("Return To Quiz Menu");  
+        b5.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b5.setBounds(830, 550, 250, 40);
 
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(l1);
@@ -61,6 +65,7 @@ public class BubbleSortQuizScore {
 		f.add(b2);
 		f.add(b3);
 		f.add(b4);
+        f.add(b5);
 
 		b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -86,6 +91,13 @@ public class BubbleSortQuizScore {
 		b4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+
+        b5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new QuizMenu();
             }
         });
 

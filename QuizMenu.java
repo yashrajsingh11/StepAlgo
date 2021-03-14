@@ -2,17 +2,17 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Font;
 
-public class MainMenu {
-	
+public class QuizMenu {
+
 	JFrame f;
 	JLabel l;
 	JButton b1, b2, b3, b4, b5, b6, b7, b8;
-	
-	public MainMenu() {
-	
-		f = new JFrame("Main Menu");
 
-		l = new JLabel("Algorithms", JLabel.CENTER);
+	public QuizMenu() {
+		
+		f = new JFrame("Quiz Menu");
+
+		l = new JLabel("Quiz Menu", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
 
@@ -42,16 +42,16 @@ public class MainMenu {
 
     	b7 = new JButton("Exit");  
     	b7.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b7.setBounds(805, 620, 250, 40); 
+    	b7.setBounds(805, 620, 250, 40);
 
-        b8 = new JButton("Go To Quiz Menu");  
+        b8 = new JButton("Return To Main Menu");  
         b8.setFont(new Font("Verdana", Font.PLAIN, 18));
         b8.setBounds(290, 620, 250, 40);
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-				new BubbleSort();
+				new BubbleSortQuiz();
             }
         });
 
@@ -99,7 +99,7 @@ public class MainMenu {
         b8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new QuizMenu();
+                new MainMenu();
             }
         });
 
@@ -116,5 +116,6 @@ public class MainMenu {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
+
 	}
 }
