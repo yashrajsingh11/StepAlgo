@@ -216,7 +216,7 @@ public class SelectionSort {
                 }
 
                 if(tempCounter == 0) {
-                    prompt.setText("<html>Same Number Got Swapped<br>Hence No Change</html>");
+                    prompt.setText("<html>Got Swapped By Itself<br>Hence No Change</html>");
                 } else {
                     prompt.setText("");
                 }
@@ -307,7 +307,7 @@ public class SelectionSort {
                 }
 
                 if(tempCounter == 0) {
-                    prompt.setText("<html>Same Number Got Swapped<br>Hence No Change</html>");
+                    prompt.setText("<html>Got Swapped By Itself<br>Hence No Change</html>");
                 } else {
                     prompt.setText("");
                 }
@@ -443,6 +443,7 @@ public class SelectionSort {
                 ol8.setForeground(Color.black);
                 ol9.setForeground(Color.black);
                 ol10.setForeground(Color.black);
+                prompt.setText("");
                 mainCounter = 10;
                 counter = 0;
                 check(mainCounter, counter);

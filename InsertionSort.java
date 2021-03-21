@@ -322,16 +322,21 @@ public class InsertionSort {
                 input[8] = Integer.parseInt(itf9.getText());
                 input[9] = Integer.parseInt(itf10.getText());
 
-                for (int i = 9; i > 0; i--) {
-        		    for (int j = 0; j < i; j++) {
-                		if (input[j] > input[j + 1]) {
-                    		for(int k = 0; k < 10; k++) {
-                    			s[counter] = input[k];
-                    			counter = counter + 1;
-                    		}
-                    		swap(input, j, j+1);
-                		}
+                for (int i = 1; i < 10; i++) {
+                	int newElement = input[i];
+                	int j;
+                	
+                	for(int k = 0; k < 10; k++) {
+            			s[counter] = input[k];
+            			counter = counter + 1;
             		}
+        		    
+        		    for (j = i; j > 0 && input[j - 1] > newElement; j--) {
+                		input[j] = input[j - 1];
+            		}
+            		
+            		input[j] = newElement;
+       			
        			}
 
        			for(int k = 0; k < 10; k++) {
