@@ -58,35 +58,35 @@ public class QuizMenu {
         b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new SelectionSort();
+                new SelectionSortQuiz();
             }
         });
 
         b3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new InsertionSort();
+                new InsertionSortQuiz();
             }
         });
 
         b4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new QuickSort();
+                new QuickSortQuiz();
             }
         });
 
         b5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new MergeSort();
+                new MergeSortQuiz();
             }
         });
 
         b6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new HeapSort();
+                new HeapSortQuiz();
             }
         });
 

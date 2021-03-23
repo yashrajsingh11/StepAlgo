@@ -7,7 +7,7 @@ public class QuickSort {
 
 	JFrame f;
 	JLabel l, code, theory;
-	JButton b1, b2, b3, b4, b5, b6, b7;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
 	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10;
 
@@ -133,7 +133,11 @@ public class QuickSort {
 
     	b5 = new JButton("Run With End Pivot");  
     	b5.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b5.setBounds(620, 500, 150, 40);
+    	b5.setBounds(720, 500, 300, 40);
+
+        b8 = new JButton("Run With Beginning Pivot");  
+        b8.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b8.setBounds(370, 500, 300, 40);
 
         b6 = new JButton("Clear");  
         b6.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -297,7 +301,7 @@ public class QuickSort {
     	b3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSortQuiz();
+                new QuickSortQuiz();
             }
         });
 
@@ -322,7 +326,7 @@ public class QuickSort {
                 input[8] = Integer.parseInt(itf9.getText());
                 input[9] = Integer.parseInt(itf10.getText());
 
-                quickSort(input,0,9);
+                quickSortEnd(input,0,9);
 
        			for(int k = 0; k < 10; k++) {
        				s[counter] = input[k];
@@ -357,6 +361,7 @@ public class QuickSort {
                 itf9.setEditable(false);
                 itf10.setEditable(false);
                 b6.setEnabled(true);
+                b8.setEnabled(false);
             }
         });
 
@@ -398,6 +403,7 @@ public class QuickSort {
                 check(mainCounter, counter);
                 b5.setEnabled(true);
                 b6.setEnabled(false);
+                b8.setEnabled(true);
                 itf1.setEditable(true);
                 itf2.setEditable(true);
                 itf3.setEditable(true);
@@ -414,6 +420,59 @@ public class QuickSort {
         b7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+
+        b8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                input[0] = Integer.parseInt(itf1.getText());
+                input[1] = Integer.parseInt(itf2.getText());
+                input[2] = Integer.parseInt(itf3.getText());
+                input[3] = Integer.parseInt(itf4.getText());
+                input[4] = Integer.parseInt(itf5.getText());
+                input[5] = Integer.parseInt(itf6.getText());
+                input[6] = Integer.parseInt(itf7.getText());
+                input[7] = Integer.parseInt(itf8.getText());
+                input[8] = Integer.parseInt(itf9.getText());
+                input[9] = Integer.parseInt(itf10.getText());
+
+                quickSortBeg(input,0,9);
+
+                for(int k = 0; k < 10; k++) {
+                    s[counter] = input[k];
+                    counter = counter + 1;
+                }
+
+                for(int i = 0; i < 10; i++) {
+                    temp[i] = s[i];
+                }
+
+                ol1.setText(Integer.toString(s[0]));
+                ol2.setText(Integer.toString(s[1]));
+                ol3.setText(Integer.toString(s[2]));
+                ol4.setText(Integer.toString(s[3]));
+                ol5.setText(Integer.toString(s[4]));
+                ol6.setText(Integer.toString(s[5]));
+                ol7.setText(Integer.toString(s[6]));
+                ol8.setText(Integer.toString(s[7]));
+                ol9.setText(Integer.toString(s[8]));
+                ol10.setText(Integer.toString(s[9]));
+
+                check(mainCounter, counter);
+                b5.setEnabled(false);
+                itf1.setEditable(false);
+                itf2.setEditable(false);
+                itf3.setEditable(false);
+                itf4.setEditable(false);
+                itf5.setEditable(false);
+                itf6.setEditable(false);
+                itf7.setEditable(false);
+                itf8.setEditable(false);
+                itf9.setEditable(false);
+                itf10.setEditable(false);
+                b6.setEnabled(true);
+                b8.setEnabled(false);
             }
         });
 
@@ -448,50 +507,85 @@ public class QuickSort {
 		f.add(b5);
         f.add(b6);
         f.add(b7);
+        f.add(b8);
     	f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
 
 	}
 
-    public void check(int mainCounter, int counter) {
-        
+    public void check(int mainCounter, int counter) {        
         if(mainCounter >= 10) {
             b2.setEnabled(true);
             b1.setEnabled(true); 
         } 
-        
+    
         if(mainCounter <= 10) {
             b1.setEnabled(false);
         }
         
         if(mainCounter >= counter) {
             b2.setEnabled(false);
-        }
-    
+        }    
     }
 
-	public static void swap(int[] array, int i, int j) {
-        
+	public static void swap(int[] array, int i, int j) {        
         if(i == j) {
             return;
         }
         
         int temp = array[i];
         array[i] = array[j];
-        array[j] = temp;
-    
+        array[j] = temp;    
     }
 
-    public int partition(int[] input, int beg, int end) {
-
+    public int partitionEnd(int[] input, int beg, int end) {
         int pivot = input[end];
         int i = beg;
         int k = beg;
         int j = end;
-        while(i<j) {
+        
+        while(i < j) {
             if(input[i] > pivot){
-                i++;
+                i = i + 1;
+            }
+            else{
+                for(int w = 0; w < 10; w++) {
+                    s[counter] = input[w];
+                    counter = counter + 1;
+                }
+                swap(input, i, k);
+                i = i + 1;
+                k = k + 1;
+            }
+        }
+
+        for(int w = 0; w < 10; w++) {
+            s[counter] = input[w];
+            counter = counter + 1;
+        }
+        swap(input, k, j);
+
+        return k;
+    }
+
+    public void quickSortEnd(int[] input, int beg, int end) {
+        if (beg < end) {
+            int pivotIndex = partitionEnd(input, beg, end);
+            quickSortEnd(input, beg, pivotIndex - 1);
+            quickSortEnd(input, pivotIndex + 1, end);
+        }
+    }
+
+    public int partitionBeg(int[] input, int beg, int end) {
+        int pivot = input[beg];
+        int i = end;
+        int k = end;
+        int j = beg;
+
+        while(i > j) {
+            if(input[i] < pivot){
+                i = i - 1;
             }
             else{
                 for(int w = 0; w < 10; w++) {
@@ -499,10 +593,11 @@ public class QuickSort {
                     counter = counter + 1;
                 }
                 swap(input,i,k);
-                i++;
-                k++;
+                i = i - 1;
+                k = k - 1;
             }
         }
+
         for(int w = 0; w < 10; w++) {
             s[counter] = input[w];
             counter = counter + 1;
@@ -512,11 +607,11 @@ public class QuickSort {
         return k;
     }
 
-    public void quickSort(int[] input, int beg, int end) {
-        if (beg<end) {
-            int pivotIndex = partition(input,beg,end);
-            quickSort(input,beg,pivotIndex-1);
-            quickSort(input,pivotIndex+1,end);
+    public void quickSortBeg(int[] input, int beg, int end) {
+        if (beg < end) {
+            int pivotIndex = partitionBeg(input, beg, end);
+            quickSortBeg(input, beg, pivotIndex - 1);
+            quickSortBeg(input, pivotIndex + 1, end);
         }
     }
 

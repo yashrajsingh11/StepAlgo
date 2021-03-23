@@ -297,7 +297,7 @@ public class MergeSort {
     	b3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSortQuiz();
+                new MergeSortQuiz();
             }
         });
 

@@ -216,7 +216,7 @@ public class SelectionSort {
                 }
 
                 if(tempCounter == 0) {
-                    prompt.setText("<html>Got Swapped By Itself<br>Hence No Change</html>");
+                    prompt.setText("<html>Got Swapped By Itself<br>Element At Correct Position<br>Hence No Change</html>");
                 } else {
                     prompt.setText("");
                 }
@@ -307,7 +307,7 @@ public class SelectionSort {
                 }
 
                 if(tempCounter == 0) {
-                    prompt.setText("<html>Got Swapped By Itself<br>Hence No Change</html>");
+                    prompt.setText("<html>Got Swapped By Itself<br>Element At Correct Position<br>Hence No Change</html>");
                 } else {
                     prompt.setText("");
                 }
@@ -362,11 +362,13 @@ public class SelectionSort {
 
                 for (int i = 9; i > 0; i--) {
                     int largest = 0;
-        		    for (int j = 1; j <= i; j++) {
+        		    
+                    for (int j = 1; j <= i; j++) {
                 		if (input[j] > input[largest]) {
                             largest = j;
                 		}
             		}
+                    
                     for(int k = 0; k < 10; k++) {
                         s[counter] = input[k];
                         counter = counter + 1;

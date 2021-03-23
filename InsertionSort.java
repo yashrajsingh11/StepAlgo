@@ -9,7 +9,7 @@ public class InsertionSort {
 	JLabel l, code, theory;
 	JButton b1, b2, b3, b4, b5, b6, b7;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
-	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10;
+	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt;
 
     int mainCounter = 10;
     int[] input = new int[10];
@@ -113,6 +113,10 @@ public class InsertionSort {
         ol10.setFont(new Font("Verdana", Font.PLAIN, 18));
     	ol10.setBounds(1100, 450, 50, 30);  
 
+        prompt = new JLabel();  
+        prompt.setFont(new Font("Verdana", Font.PLAIN, 18));
+        prompt.setBounds(50, 550, 250, 100);
+
     	b1 = new JButton("Previous");
 		b1.setFont(new Font("Verdana", Font.PLAIN, 18));  
     	b1.setBounds(315, 550, 250, 40);
@@ -148,56 +152,73 @@ public class InsertionSort {
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
         		mainCounter = mainCounter - 20;
+                int tempCounter = 0;
 
                 if(temp[0] != s[mainCounter]) {
                     ol1.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol1.setForeground(Color.black);
                 }
                 if(temp[1] != s[mainCounter + 1]) {
                     ol2.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol2.setForeground(Color.black);
                 }
                 if(temp[2] != s[mainCounter + 2]) {
                     ol3.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol3.setForeground(Color.black);
                 }
                 if(temp[3] != s[mainCounter + 3]) {
                     ol4.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol4.setForeground(Color.black);
                 }
                 if(temp[4] != s[mainCounter + 4]) {
                     ol5.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol5.setForeground(Color.black);
                 }
                 if(temp[5] != s[mainCounter + 5]) {
                     ol6.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol6.setForeground(Color.black);
                 }
                 if(temp[6] != s[mainCounter + 6]) {
                     ol7.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol7.setForeground(Color.black);
                 }
                 if(temp[7] != s[mainCounter + 7]) {
                     ol8.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol8.setForeground(Color.black);
                 }
                 if(temp[8] != s[mainCounter + 8]) {
                     ol9.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol9.setForeground(Color.black);
                 }
                 if(temp[9] != s[mainCounter + 9]) {
                     ol10.setForeground(Color.red);
+                    tempCounter = 1;
                 } else {
                     ol10.setForeground(Color.black);
+                }
+
+                if(tempCounter == 0) {
+                    prompt.setText("<html>Got Swapped By Itself<br>Element At Correct Position<br>Hence No Change</html>");
+                } else {
+                    prompt.setText("");
                 }
 
                 ol1.setText(Integer.toString(s[mainCounter]));
@@ -222,56 +243,73 @@ public class InsertionSort {
 
     	b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                int tempCounter = 0;
                 
                 if(temp[0] != s[mainCounter]) {
                     ol1.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol1.setForeground(Color.black);
                 }
                 if(temp[1] != s[mainCounter + 1]) {
                     ol2.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol2.setForeground(Color.black);
                 }
                 if(temp[2] != s[mainCounter + 2]) {
                     ol3.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol3.setForeground(Color.black);
                 }
                 if(temp[3] != s[mainCounter + 3]) {
                     ol4.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol4.setForeground(Color.black);
                 }
                 if(temp[4] != s[mainCounter + 4]) {
                     ol5.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol5.setForeground(Color.black);
                 }
                 if(temp[5] != s[mainCounter + 5]) {
                     ol6.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol6.setForeground(Color.black);
                 }
                 if(temp[6] != s[mainCounter + 6]) {
                     ol7.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol7.setForeground(Color.black);
                 }
                 if(temp[7] != s[mainCounter + 7]) {
                     ol8.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol8.setForeground(Color.black);
                 }
                 if(temp[8] != s[mainCounter + 8]) {
                     ol9.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol9.setForeground(Color.black);
                 }
                 if(temp[9] != s[mainCounter + 9]) {
                     ol10.setForeground(Color.green);
+                    tempCounter = 1;
                 } else {
                     ol10.setForeground(Color.black);
+                }
+
+                if(tempCounter == 0) {
+                    prompt.setText("<html>Got Swapped By Itself<br>Element At Correct Position<br>Hence No Change</html>");
+                } else {
+                    prompt.setText("");
                 }
 
                 ol1.setText(Integer.toString(s[mainCounter]));
@@ -398,6 +436,7 @@ public class InsertionSort {
                 ol8.setText("");
                 ol9.setText("");
                 ol10.setText("");
+                prompt.setText("");
                 ol1.setForeground(Color.black);
                 ol2.setForeground(Color.black);
                 ol3.setForeground(Color.black);
@@ -456,6 +495,7 @@ public class InsertionSort {
     	f.add(ol8);
     	f.add(ol9);
     	f.add(ol10);
+        f.add(prompt);
     	f.add(b1);
 		f.add(b2);
 		f.add(b3);
