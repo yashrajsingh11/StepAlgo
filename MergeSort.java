@@ -11,10 +11,11 @@ public class MergeSort {
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
 	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10;
 
-    int mainCounter = 10;
+    int mainCounter = 10, ekAurMainCounter = 0;
     int[] input = new int[10];
     int[] s = new int[1000];
-    int counter = 0;
+    int[] abc = new int[1000];
+    int counter = 0, ekAurCounter = 0;
     int[] temp = new int[10];
 
 	public MergeSort() {
@@ -25,11 +26,11 @@ public class MergeSort {
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
 
-        theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
+        theory = new JLabel("<html>Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one, as shown on the right.</html>");
         theory.setFont(new Font("Verdana", Font.PLAIN, 18));
         theory.setBounds(100, 100, 600, 280);
 
-        code = new JLabel("<html>for (i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        code = new JLabel("<html>if(beg &#60 end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int mid = (beg + end)/2<br>&nbsp;&nbsp;&nbsp;&nbsp;mergeSort(arr, beg, mid);<br>&nbsp;&nbsp;&nbsp;&nbsp;mergeSort(arr, mid+1, end);<br>&nbsp;&nbsp;&nbsp;&nbsp;merge(arr, beg, mid, end);<br>}</html>");
         code.setFont(new Font("Verdana", Font.PLAIN, 18));
         code.setBounds(800, 100, 500, 280);
 
@@ -148,53 +149,54 @@ public class MergeSort {
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
         		mainCounter = mainCounter - 20;
+                ekAurMainCounter = ekAurMainCounter - 10;
 
-                if(temp[0] != s[mainCounter]) {
+                if(abc[ekAurMainCounter] == 1) {
                     ol1.setForeground(Color.red);
                 } else {
                     ol1.setForeground(Color.black);
                 }
-                if(temp[1] != s[mainCounter + 1]) {
+                if(abc[ekAurMainCounter + 1] == 1) {
                     ol2.setForeground(Color.red);
                 } else {
                     ol2.setForeground(Color.black);
                 }
-                if(temp[2] != s[mainCounter + 2]) {
+                if(abc[ekAurMainCounter + 2] == 1) {
                     ol3.setForeground(Color.red);
                 } else {
                     ol3.setForeground(Color.black);
                 }
-                if(temp[3] != s[mainCounter + 3]) {
+                if(abc[ekAurMainCounter + 3] == 1) {
                     ol4.setForeground(Color.red);
                 } else {
                     ol4.setForeground(Color.black);
                 }
-                if(temp[4] != s[mainCounter + 4]) {
+                if(abc[ekAurMainCounter + 4] == 1) {
                     ol5.setForeground(Color.red);
                 } else {
                     ol5.setForeground(Color.black);
                 }
-                if(temp[5] != s[mainCounter + 5]) {
+                if(abc[ekAurMainCounter + 5] == 1) {
                     ol6.setForeground(Color.red);
                 } else {
                     ol6.setForeground(Color.black);
                 }
-                if(temp[6] != s[mainCounter + 6]) {
+                if(abc[ekAurMainCounter + 6] == 1) {
                     ol7.setForeground(Color.red);
                 } else {
                     ol7.setForeground(Color.black);
                 }
-                if(temp[7] != s[mainCounter + 7]) {
+                if(abc[ekAurMainCounter + 7] == 1) {
                     ol8.setForeground(Color.red);
                 } else {
                     ol8.setForeground(Color.black);
                 }
-                if(temp[8] != s[mainCounter + 8]) {
+                if(abc[ekAurMainCounter + 8] == 1) {
                     ol9.setForeground(Color.red);
                 } else {
                     ol9.setForeground(Color.black);
                 }
-                if(temp[9] != s[mainCounter + 9]) {
+                if(abc[ekAurMainCounter + 9] == 1) {
                     ol10.setForeground(Color.red);
                 } else {
                     ol10.setForeground(Color.black);
@@ -223,52 +225,52 @@ public class MergeSort {
     	b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
-                if(temp[0] != s[mainCounter]) {
+                if(abc[ekAurMainCounter] == 1) {
                     ol1.setForeground(Color.green);
                 } else {
                     ol1.setForeground(Color.black);
                 }
-                if(temp[1] != s[mainCounter + 1]) {
+                if(abc[ekAurMainCounter + 1] == 1) {
                     ol2.setForeground(Color.green);
                 } else {
                     ol2.setForeground(Color.black);
                 }
-                if(temp[2] != s[mainCounter + 2]) {
+                if(abc[ekAurMainCounter + 2] == 1) {
                     ol3.setForeground(Color.green);
                 } else {
                     ol3.setForeground(Color.black);
                 }
-                if(temp[3] != s[mainCounter + 3]) {
+                if(abc[ekAurMainCounter + 3] == 1) {
                     ol4.setForeground(Color.green);
                 } else {
                     ol4.setForeground(Color.black);
                 }
-                if(temp[4] != s[mainCounter + 4]) {
+                if(abc[ekAurMainCounter + 4] == 1) {
                     ol5.setForeground(Color.green);
                 } else {
                     ol5.setForeground(Color.black);
                 }
-                if(temp[5] != s[mainCounter + 5]) {
+                if(abc[ekAurMainCounter + 5] == 1) {
                     ol6.setForeground(Color.green);
                 } else {
                     ol6.setForeground(Color.black);
                 }
-                if(temp[6] != s[mainCounter + 6]) {
+                if(abc[ekAurMainCounter + 6] == 1) {
                     ol7.setForeground(Color.green);
                 } else {
                     ol7.setForeground(Color.black);
                 }
-                if(temp[7] != s[mainCounter + 7]) {
+                if(abc[ekAurMainCounter + 7] == 1) {
                     ol8.setForeground(Color.green);
                 } else {
                     ol8.setForeground(Color.black);
                 }
-                if(temp[8] != s[mainCounter + 8]) {
+                if(abc[ekAurMainCounter + 8] == 1) {
                     ol9.setForeground(Color.green);
                 } else {
                     ol9.setForeground(Color.black);
                 }
-                if(temp[9] != s[mainCounter + 9]) {
+                if(abc[ekAurMainCounter + 9] == 1) {
                     ol10.setForeground(Color.green);
                 } else {
                     ol10.setForeground(Color.black);
@@ -290,6 +292,7 @@ public class MergeSort {
                 }
 
         		mainCounter = mainCounter + 10;
+                ekAurMainCounter = ekAurMainCounter + 10;
                 check(mainCounter, counter);
             }
         });
@@ -394,6 +397,7 @@ public class MergeSort {
                 ol9.setForeground(Color.black);
                 ol10.setForeground(Color.black);
                 mainCounter = 10;
+                ekAurMainCounter = 0;
                 counter = 0;
                 check(mainCounter, counter);
                 b5.setEnabled(true);
@@ -477,49 +481,58 @@ public class MergeSort {
         int n2 = end - mid;
         int[] temp1 = new int[n1];
         int[] temp2 = new int[n2];
-        for(int i=0;i<n1;i++) {
+        for(int i = 0; i < n1; i++) {
             temp1[i] = input[beg + i];
         }
-        for(int j = 0; j<n2;j++) {
-            temp2[j] = input[1+mid+j];
+        for(int j = 0; j < n2; j++) {
+            temp2[j] = input[1 + mid + j];
         }
         int i = 0;
         int j = 0;
         int k = beg;
-        while(i<n1 && j<n2) {
-            if(temp1[i]<=temp2[j]) {
+        while(i < n1 && j < n2) {
+            if(temp1[i] <= temp2[j]) {
                 input[k] = temp1[i];
-                i++;
+                i = i + 1;
             }
             else {
                 input[k] = temp2[j];
-                j++;
+                j = j + 1;
             }
-            k++;
+            k = k + 1;
         }
-        while(i<n1) {
+        while(i < n1) {
             input[k] = temp1[i];
-            i++;
-            k++;
+            i = i + 1;
+            k = k + 1;
         }
-        while(j<n2) {
+        while(j < n2) {
             input[k] = temp2[j];
-            j++;
-            k++;
+            j = j + 1;
+            k = k + 1;
         }
 
     }
 
     public void mergeSort (int[] input, int beg, int end) {
-        if(beg<end) {
-            int mid = (beg + end)/2;
-            mergeSort(input,beg,mid);
-            mergeSort(input,mid+1,end);
+        if(beg < end) {
+            int mid = (beg + end) / 2;
+            mergeSort(input, beg, mid);
+            mergeSort(input, mid + 1, end);
+            for(int k = 0; k < 10; k++) {
+                if(k >= beg && k <= end) {
+                    abc[ekAurCounter] = 1;
+                    ekAurCounter = ekAurCounter + 1;
+                } else {
+                    abc[ekAurCounter] = 0;
+                    ekAurCounter = ekAurCounter + 1;
+                }
+            }
             for(int k = 0; k < 10; k++) {
                 s[counter] = input[k];
                 counter = counter + 1;
             }
-            merge(input,beg,mid,end);
+            merge(input, beg, mid, end);
         }
     }
 

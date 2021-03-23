@@ -13,10 +13,10 @@ public class InsertionSort {
             input[i] = scanner.nextInt();
         }
         scanner.close();
-        for(int i = 1; i<n;i++) {
+        for(int i = 1; i < n; i++) {
             int newElement = input[i];
             int j;
-            for(j = i; j > 0 && input[j-1]>newElement; j--) {
+            for(j = i; j > 0 && input[j - 1] > newElement; j--) {
                 input[j] = input[j-1];
             }
             input[j] = newElement;

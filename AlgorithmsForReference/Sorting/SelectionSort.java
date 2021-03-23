@@ -13,14 +13,14 @@ public class SelectionSort {
             input[i] = scanner.nextInt();
         }
         scanner.close();
-        for(int i = n-1; i > 0; i--) {
+        for(int i = n - 1; i > 0; i--) {
             int largest = 0;
-            for(int j = 1;j <= i; j++) {
+            for(int j = 1; j <= i; j++) {
                 if(input[j] > input[largest]) {
                     largest = j;
                 }
             }
-            swap(input,largest,i);
+            swap(input, largest, i);
         }
         for (int i = 0; i < n; i++) {
             System.out.print(input[i] + " ");

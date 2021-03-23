@@ -9,12 +9,15 @@ public class QuickSort {
 	JLabel l, code, theory;
 	JButton b1, b2, b3, b4, b5, b6, b7, b8;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
-	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10;
+	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt1, prompt2, prompt3;
 
-    int mainCounter = 10;
+    int mainCounter = 10, ekAurCounter = 1;
     int[] input = new int[10];
     int[] s = new int[1000];
-    int counter = 0;
+    int[] arrayI = new int[100];
+    int[] arrayK = new int[100];
+    int[] arrayBeg = new int[100];
+    int counter = 0, z = 0;
     int[] temp = new int[10];
 
 	public QuickSort() {
@@ -113,6 +116,18 @@ public class QuickSort {
         ol10.setFont(new Font("Verdana", Font.PLAIN, 18));
     	ol10.setBounds(1100, 450, 50, 30);  
 
+        prompt1 = new JLabel();  
+        prompt1.setFont(new Font("Verdana", Font.PLAIN, 18));
+        prompt1.setBounds(50, 550, 250, 50);
+
+        prompt2 = new JLabel();  
+        prompt2.setFont(new Font("Verdana", Font.PLAIN, 18));
+        prompt2.setBounds(50, 600, 250, 50);
+
+        prompt3 = new JLabel();  
+        prompt3.setFont(new Font("Verdana", Font.PLAIN, 18));
+        prompt3.setBounds(50, 650, 250, 50);
+
     	b1 = new JButton("Previous");
 		b1.setFont(new Font("Verdana", Font.PLAIN, 18));  
     	b1.setBounds(315, 550, 250, 40);
@@ -204,6 +219,11 @@ public class QuickSort {
                     ol10.setForeground(Color.black);
                 }
 
+                ekAurCounter = ekAurCounter - 2;
+                prompt1.setText("Current Index i = " + arrayI[ekAurCounter]);
+                prompt2.setText("Current Index j = " + arrayK[ekAurCounter]);
+                prompt3.setText("Pivot Index= " + arrayBeg[ekAurCounter]);
+
                 ol1.setText(Integer.toString(s[mainCounter]));
         		ol2.setText(Integer.toString(s[mainCounter + 1]));
         		ol3.setText(Integer.toString(s[mainCounter + 2]));
@@ -220,6 +240,7 @@ public class QuickSort {
                 }
 
         		mainCounter = mainCounter + 10;
+                ekAurCounter = ekAurCounter + 1;
                 check(mainCounter, counter);
             }
         });
@@ -278,6 +299,10 @@ public class QuickSort {
                     ol10.setForeground(Color.black);
                 }
 
+                prompt1.setText("Current Index i = " + arrayI[ekAurCounter]);
+                prompt2.setText("Current Index j = " + arrayK[ekAurCounter]);
+                prompt3.setText("Pivot Index= " + arrayBeg[ekAurCounter]);
+
                 ol1.setText(Integer.toString(s[mainCounter]));
         		ol2.setText(Integer.toString(s[mainCounter + 1]));
         		ol3.setText(Integer.toString(s[mainCounter + 2]));
@@ -293,6 +318,7 @@ public class QuickSort {
                     temp[i] = s[mainCounter + i];
                 }
 
+                ekAurCounter = ekAurCounter + 1;
         		mainCounter = mainCounter + 10;
                 check(mainCounter, counter);
             }
@@ -347,6 +373,9 @@ public class QuickSort {
         		ol8.setText(Integer.toString(s[7]));
         		ol9.setText(Integer.toString(s[8]));
         		ol10.setText(Integer.toString(s[9]));
+                prompt1.setText("Current Index i = " + Integer.toString(arrayI[0]));
+                prompt2.setText("Current Index j = " + Integer.toString(arrayK[0]));
+                prompt3.setText("Pivot Index = " + Integer.toString(arrayBeg[0]));
 
                 check(mainCounter, counter);
                 b5.setEnabled(false);
@@ -388,6 +417,9 @@ public class QuickSort {
                 ol8.setText("");
                 ol9.setText("");
                 ol10.setText("");
+                prompt1.setText("");
+                prompt2.setText("");
+                prompt3.setText("");
                 ol1.setForeground(Color.black);
                 ol2.setForeground(Color.black);
                 ol3.setForeground(Color.black);
@@ -399,6 +431,8 @@ public class QuickSort {
                 ol9.setForeground(Color.black);
                 ol10.setForeground(Color.black);
                 mainCounter = 10;
+                ekAurCounter = 1;
+                z = 0;
                 counter = 0;
                 check(mainCounter, counter);
                 b5.setEnabled(true);
@@ -500,6 +534,9 @@ public class QuickSort {
     	f.add(ol8);
     	f.add(ol9);
     	f.add(ol10);
+        f.add(prompt1);
+        f.add(prompt2);
+        f.add(prompt3);
     	f.add(b1);
 		f.add(b2);
 		f.add(b3);
@@ -546,19 +583,29 @@ public class QuickSort {
         int j = end;
         
         while(i < j) {
+            arrayI[z] = i;
+            arrayK[z] = k;
+            arrayBeg[z] = end;
+            z = z + 1;
+
+            for(int w = 0; w < 10; w++) {
+                s[counter] = input[w];
+                counter = counter + 1;
+            }
             if(input[i] > pivot){
                 i = i + 1;
             }
             else{
-                for(int w = 0; w < 10; w++) {
-                    s[counter] = input[w];
-                    counter = counter + 1;
-                }
                 swap(input, i, k);
                 i = i + 1;
                 k = k + 1;
             }
         }
+
+        arrayI[z] = k;
+        arrayK[z] = j;
+        arrayBeg[z] = end;
+        z = z + 1;
 
         for(int w = 0; w < 10; w++) {
             s[counter] = input[w];
@@ -584,19 +631,29 @@ public class QuickSort {
         int j = beg;
 
         while(i > j) {
+            arrayI[z] = i;
+            arrayK[z] = k;
+            arrayBeg[z] = beg;
+            z = z + 1;
+
+            for(int w = 0; w < 10; w++) {
+                s[counter] = input[w];
+                counter = counter + 1;
+            }
             if(input[i] < pivot){
                 i = i - 1;
             }
             else{
-                for(int w = 0; w < 10; w++) {
-                    s[counter] = input[w];
-                    counter = counter + 1;
-                }
                 swap(input,i,k);
                 i = i - 1;
                 k = k - 1;
             }
         }
+
+        arrayI[z] = k;
+        arrayK[z] = j;
+        arrayBeg[z] = beg;
+        z = z + 1;
 
         for(int w = 0; w < 10; w++) {
             s[counter] = input[w];

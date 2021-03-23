@@ -24,12 +24,12 @@ public class InsertionSort {
 		l = new JLabel("Insertion Sort", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
-
-        theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
+                            
+        theory = new JLabel("<html>In Insertion sort the array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part, according to the logic given on right.<br>Algorithm:<br>1) Iterate from arr[1] to arr[n] over the array.<br>2) Compare the current element (key) to its predecessor.<br>3) If the key element is smaller than its predecessor, compare it to the elements before. Move the greater elements one position up to make space for the swapped element.</html>");
         theory.setFont(new Font("Verdana", Font.PLAIN, 18));
         theory.setBounds(100, 100, 600, 280);
 
-        code = new JLabel("<html>for (i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        code = new JLabel("<html>for (int i = 1; i &#60 n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int newElement = arr[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;int j;<br>&nbsp;&nbsp;&nbsp;&nbsp;for(j = i; j &#62; 0 && input[j - 1] &#62 newElement; j--) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[j] = arr[j-1];<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;arr[j] = newElement;<br>}</html>");
         code.setFont(new Font("Verdana", Font.PLAIN, 18));
         code.setBounds(800, 100, 500, 280);
 
@@ -371,10 +371,8 @@ public class InsertionSort {
         		    
         		    for (j = i; j > 0 && input[j - 1] > newElement; j--) {
                 		input[j] = input[j - 1];
-            		}
-            		
+            		}            		
             		input[j] = newElement;
-       			
        			}
 
        			for(int k = 0; k < 10; k++) {

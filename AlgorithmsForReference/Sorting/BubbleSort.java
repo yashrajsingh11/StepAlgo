@@ -12,12 +12,12 @@ public class BubbleSort {
             input[i] = scanner.nextInt();
         }
         scanner.close();
-        for (int i = n-1; i > 0; i--) {
+        for (int i = n - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (input[j] > input[j + 1]) {
-                    swap(input,j,j+1);
-                    for(int k=0; k<n; k++)
-                        System.out.print(input[k]+" ");
+                    swap(input, j, j + 1);
+                    for(int k = 0; k < n; k++)
+                        System.out.print(input[k] + " ");
                     System.out.println();
                 }
             }

@@ -24,12 +24,12 @@ public class SelectionSort {
 		l = new JLabel("Selection Sort", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
-
-        theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
+    						
+        theory = new JLabel("<html>The selection sort algorithm sorts an array by repeatedly finding the maximum element from unsorted part and putting it at the beginning.<br>The algorithm maintains two subarrays in a given array:<br>1) The subarray which is already sorted.<br>2) Remaining subarray which is unsorted.<br>In every iteration of selection sort, the maximum element from the unsorted subarray is picked and moved to the sorted subarray, using the logic given on the right.</html>");
         theory.setFont(new Font("Verdana", Font.PLAIN, 18));
         theory.setBounds(100, 100, 600, 280);
 
-        code = new JLabel("<html>for (i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        code = new JLabel("<html>for (int i = n-1; i &#62; 0; i--) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int largest = 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 1; j &#60;= i; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[largest]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largest = j;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;swap(largest, i);<br>}</html>");
         code.setFont(new Font("Verdana", Font.PLAIN, 18));
         code.setBounds(800, 100, 500, 280);
 
