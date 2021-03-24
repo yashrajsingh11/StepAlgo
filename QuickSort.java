@@ -6,7 +6,7 @@ import java.awt.Color;
 public class QuickSort {
 
 	JFrame f;
-	JLabel l, code, theory;
+	JLabel l, code1, code2;
 	JButton b1, b2, b3, b4, b5, b6, b7, b8;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
 	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt1, prompt2, prompt3;
@@ -26,15 +26,15 @@ public class QuickSort {
 
 		l = new JLabel("Quick Sort", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
-    	l.setBounds(490, 50, 400, 60);
+    	l.setBounds(490, 25, 400, 60);
 
-        theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
-        theory.setFont(new Font("Verdana", Font.PLAIN, 18));
-        theory.setBounds(100, 100, 600, 280);
+        code1 = new JLabel("<html>public void quickSortBeg(int[] input, int beg, int end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (beg &#60 end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int pivotIndex = partitionBeg(input, beg, end);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSortBeg(input, beg, pivotIndex - 1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSortBeg(input, pivotIndex + 1, end);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        code1.setFont(new Font("Verdana", Font.PLAIN, 18));
+        code1.setBounds(100, 100, 500, 280);
 
-        code = new JLabel("<html>for (i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
-        code.setFont(new Font("Verdana", Font.PLAIN, 18));
-        code.setBounds(800, 100, 500, 280);
+        code2 = new JLabel("<html>public int partitionBeg(int[] input, int beg, int end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int pivot = input[beg], i = end, k = end, j = beg;<br>&nbsp;&nbsp;&nbsp;&nbsp;while(i &#62 j) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(input[i] &#60 pivot) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = i - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(i, k);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = i - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k = k - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;swap(k, j);<br>}</html>");
+        code2.setFont(new Font("Verdana", Font.PLAIN, 18));
+        code2.setBounds(800, 70, 500, 320);
 
    		itf1 = new JTextField("0");  
     	itf1.setBounds(200, 400, 50, 30);
@@ -493,6 +493,10 @@ public class QuickSort {
                 ol9.setText(Integer.toString(s[8]));
                 ol10.setText(Integer.toString(s[9]));
 
+                prompt1.setText("Current Index i = " + Integer.toString(arrayI[0]));
+                prompt2.setText("Current Index j = " + Integer.toString(arrayK[0]));
+                prompt3.setText("Pivot Index = " + Integer.toString(arrayBeg[0]));
+
                 check(mainCounter, counter);
                 b5.setEnabled(false);
                 itf1.setEditable(false);
@@ -512,8 +516,8 @@ public class QuickSort {
 
     	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	f.add(l);
-        f.add(theory);
-        f.add(code);
+        f.add(code1);
+        f.add(code2);
     	f.add(itf1);
     	f.add(itf2);
     	f.add(itf3);
