@@ -6,18 +6,17 @@ import java.awt.Color;
 public class QuickSort {
 
 	JFrame f;
-	JLabel l, code1, code2;
+	JLabel l, code, theory;
 	JButton b1, b2, b3, b4, b5, b6, b7, b8;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
 	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt1, prompt2, prompt3;
 
-    int mainCounter = 10, ekAurCounter = 1;
+    int mainCounter = 10, ekAurCounter = 1, counter = 0, z = 0;
     int[] input = new int[10];
     int[] s = new int[1000];
     int[] arrayI = new int[100];
     int[] arrayK = new int[100];
     int[] arrayBeg = new int[100];
-    int counter = 0, z = 0;
     int[] temp = new int[10];
 
 	public QuickSort() {
@@ -28,13 +27,13 @@ public class QuickSort {
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 25, 400, 60);
 
-        code1 = new JLabel("<html>public void quickSortBeg(int[] input, int beg, int end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (beg &#60 end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int pivotIndex = partitionBeg(input, beg, end);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSortBeg(input, beg, pivotIndex - 1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSortBeg(input, pivotIndex + 1, end);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
-        code1.setFont(new Font("Verdana", Font.PLAIN, 18));
-        code1.setBounds(100, 100, 500, 280);
+        theory = new JLabel("<html>QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. The key process in quickSort is partition() which puts x at its correct position in sorted array and put all elements smaller than x before x, and all elements greater than x after x, in the given array. All this is done in linear time.</html>");
+        theory.setFont(new Font("Verdana", Font.PLAIN, 18));
+        theory.setBounds(100, 100, 500, 280);
 
-        code2 = new JLabel("<html>public int partitionBeg(int[] input, int beg, int end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int pivot = input[beg], i = end, k = end, j = beg;<br>&nbsp;&nbsp;&nbsp;&nbsp;while(i &#62 j) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(input[i] &#60 pivot) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = i - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(i, k);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = i - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k = k - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;swap(k, j);<br>}</html>");
-        code2.setFont(new Font("Verdana", Font.PLAIN, 18));
-        code2.setBounds(800, 70, 500, 320);
+        code = new JLabel("<html>public void quickSortBeg(int[] input, int beg, int end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (beg &#60 end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int pivotIndex = partitionBeg(input, beg, end);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSortBeg(input, beg, pivotIndex - 1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSortBeg(input, pivotIndex + 1, end);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        code.setFont(new Font("Verdana", Font.PLAIN, 18));
+        code.setBounds(800, 100, 500, 280);
 
    		itf1 = new JTextField("0");  
     	itf1.setBounds(200, 400, 50, 30);
@@ -222,7 +221,7 @@ public class QuickSort {
                 ekAurCounter = ekAurCounter - 2;
                 prompt1.setText("Current Index i = " + arrayI[ekAurCounter]);
                 prompt2.setText("Current Index j = " + arrayK[ekAurCounter]);
-                prompt3.setText("Pivot Index= " + arrayBeg[ekAurCounter]);
+                prompt3.setText("Pivot Index = " + arrayBeg[ekAurCounter]);
 
                 ol1.setText(Integer.toString(s[mainCounter]));
         		ol2.setText(Integer.toString(s[mainCounter + 1]));
@@ -301,7 +300,7 @@ public class QuickSort {
 
                 prompt1.setText("Current Index i = " + arrayI[ekAurCounter]);
                 prompt2.setText("Current Index j = " + arrayK[ekAurCounter]);
-                prompt3.setText("Pivot Index= " + arrayBeg[ekAurCounter]);
+                prompt3.setText("Pivot Index = " + arrayBeg[ekAurCounter]);
 
                 ol1.setText(Integer.toString(s[mainCounter]));
         		ol2.setText(Integer.toString(s[mainCounter + 1]));
@@ -516,8 +515,8 @@ public class QuickSort {
 
     	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	f.add(l);
-        f.add(code1);
-        f.add(code2);
+        f.add(theory);
+        f.add(code);
     	f.add(itf1);
     	f.add(itf2);
     	f.add(itf3);

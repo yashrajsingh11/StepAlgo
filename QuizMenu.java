@@ -3,50 +3,74 @@ import java.awt.event.*;
 import java.awt.Font;
 
 public class QuizMenu {
-
+	
 	JFrame f;
-	JLabel l;
-	JButton b1, b2, b3, b4, b5, b6, b7, b8;
-
+	JLabel l, l1, l2, l3;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11;
+	
 	public QuizMenu() {
-		
+	
 		f = new JFrame("Quiz Menu");
 
-		l = new JLabel("Quiz Menu", JLabel.CENTER);
+		l = new JLabel("Algorithms", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
 
+    	l1 = new JLabel("Sorting", JLabel.CENTER);
+		l1.setFont(new Font("Verdana", Font.PLAIN, 24));
+    	l1.setBounds(100, 100, 300, 50);
+
+    	l2 = new JLabel("Searching", JLabel.CENTER);
+		l2.setFont(new Font("Verdana", Font.PLAIN, 24));
+    	l2.setBounds(475, 100, 400, 50);
+
+    	l3 = new JLabel("Graph-Based", JLabel.CENTER);
+		l3.setFont(new Font("Verdana", Font.PLAIN, 24));
+    	l3.setBounds(950, 100, 300, 50);
+
 		b1 = new JButton("Bubble Sort");
 		b1.setFont(new Font("Verdana", Font.PLAIN, 18));  
-    	b1.setBounds(315, 200, 200, 40);
+    	b1.setBounds(150, 200, 200, 40);
 
     	b2 = new JButton("Selection Sort");  
     	b2.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b2.setBounds(830, 200, 200, 40); 
+    	b2.setBounds(150, 250, 200, 40); 
 
     	b3 = new JButton("Insertion Sort");  
     	b3.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b3.setBounds(315, 300, 200, 40);
+    	b3.setBounds(150, 300, 200, 40);
 
     	b4 = new JButton("Quick Sort");  
     	b4.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b4.setBounds(830, 300, 200, 40); 
+    	b4.setBounds(150, 350, 200, 40); 
 
     	b5 = new JButton("Merge Sort");  
     	b5.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b5.setBounds(315, 400, 200, 40);
+    	b5.setBounds(150, 400, 200, 40);
 
     	b6 = new JButton("Heap Sort");  
     	b6.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b6.setBounds(830, 400, 200, 40); 
+    	b6.setBounds(150, 450, 200, 40); 
 
     	b7 = new JButton("Exit");  
     	b7.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	b7.setBounds(805, 620, 250, 40);
+    	b7.setBounds(805, 620, 250, 40); 
 
-        b8 = new JButton("Return To Main Menu");  
+        b8 = new JButton("Go To Main Menu");  
         b8.setFont(new Font("Verdana", Font.PLAIN, 18));
         b8.setBounds(290, 620, 250, 40);
+
+        b9 = new JButton("Linear Search");  
+        b9.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b9.setBounds(575, 200, 200, 40);
+
+        b10 = new JButton("Binary Search");  
+        b10.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b10.setBounds(575, 250, 200, 40);
+
+        b11 = new JButton("DFS");  
+        b11.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b11.setBounds(1000, 200, 200, 40);
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -103,8 +127,32 @@ public class QuizMenu {
             }
         });
 
+        b9.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new LinearSearchQuiz();
+            }
+        });
+
+        b10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSortQuiz();
+            }
+        });
+
+        b11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSortQuiz();
+            }
+        });
+
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(l);
+		f.add(l1);
+		f.add(l2);
+		f.add(l3);
 		f.add(b1);
 		f.add(b2);
 		f.add(b3);
@@ -113,9 +161,11 @@ public class QuizMenu {
 		f.add(b6);
 		f.add(b7);
         f.add(b8);
+        f.add(b9);
+        f.add(b10);
+        f.add(b11);
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

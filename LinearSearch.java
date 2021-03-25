@@ -3,39 +3,37 @@ import java.awt.event.*;
 import java.awt.Font;
 import java.awt.Color;
 
-public class InsertionSort {
+public class LinearSearch {
 
 	JFrame f;
 	JLabel l, code, theory;
 	JButton b1, b2, b3, b4, b5, b6, b7;
-	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
-	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt1, prompt2, prompt3;
+	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10, itf11;  
+	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt1, prompt2;
 
-    int mainCounter = 10, counter = 0, z = 0, ekAurCounter = 0;
-    int[] input = new int[10];
-    int[] s = new int[1000];
-    int[] index1 = new int[100];
-    int[] index2 = new int[100];
-    int[] index3 = new int[100];
-    int[] temp = new int[10];
+	int[] input = new int[10];
+	int[] temp = new int[100];
+	int[] s = new int[1000];
+	int number = 0, res = -1;
+	int mainCounter = 10, counter = 0, z = 0, ekAurCounter = 0;
 
-	public InsertionSort() {
-		
-		f = new JFrame("Insertion Sort");
+	public LinearSearch() {
 
-		l = new JLabel("Insertion Sort", JLabel.CENTER);
+		f = new JFrame("Linear Search");
+
+		l = new JLabel("Linear Search", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
-                            
-        theory = new JLabel("<html>In Insertion sort the array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part, according to the logic given on right.<br>Algorithm:<br>1) Iterate from arr[1] to arr[n] over the array.<br>2) Compare the current element (key) to its predecessor.<br>3) If the key element is smaller than its predecessor, compare it to the elements before. Move the greater elements one position up to make space for the swapped element.</html>");
+
+    	theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
         theory.setFont(new Font("Verdana", Font.PLAIN, 18));
         theory.setBounds(100, 100, 600, 280);
 
-        code = new JLabel("<html>for (int i = 1; i &#60 n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int newElement = arr[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;int j;<br>&nbsp;&nbsp;&nbsp;&nbsp;for(j = i; j &#62; 0 && input[j - 1] &#62 newElement; j--) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[j] = arr[j-1];<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;arr[j] = newElement;<br>}</html>");
+        code = new JLabel("<html>for (int i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
         code.setFont(new Font("Verdana", Font.PLAIN, 18));
         code.setBounds(800, 100, 500, 280);
 
-   		itf1 = new JTextField("0");  
+        itf1 = new JTextField("0");  
     	itf1.setBounds(200, 400, 50, 30);
         itf1.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -75,6 +73,10 @@ public class InsertionSort {
     	itf10.setBounds(1100, 400, 50, 30);
         itf10.setFont(new Font("Verdana", Font.PLAIN, 18)); 
 
+        itf11 = new JTextField("0");  
+    	itf11.setBounds(1200, 400, 50, 30);
+        itf11.setFont(new Font("Verdana", Font.PLAIN, 18));
+
     	ol1 = new JLabel();
         ol1.setFont(new Font("Verdana", Font.PLAIN, 18));  
     	ol1.setBounds(200, 450, 50, 30); 
@@ -113,19 +115,15 @@ public class InsertionSort {
 
     	ol10 = new JLabel();  
         ol10.setFont(new Font("Verdana", Font.PLAIN, 18));
-    	ol10.setBounds(1100, 450, 50, 30);  
+    	ol10.setBounds(1100, 450, 50, 30);
 
-        prompt1 = new JLabel();  
+    	prompt1 = new JLabel();  
         prompt1.setFont(new Font("Verdana", Font.PLAIN, 18));
-        prompt1.setBounds(50, 550, 300, 50);
+        prompt1.setBounds(50, 550, 250, 50);
 
         prompt2 = new JLabel();  
         prompt2.setFont(new Font("Verdana", Font.PLAIN, 18));
-        prompt2.setBounds(50, 600, 300, 50);
-
-        prompt3 = new JLabel();  
-        prompt3.setFont(new Font("Verdana", Font.PLAIN, 18));
-        prompt3.setBounds(50, 650, 300, 50);
+        prompt2.setBounds(100, 600, 250, 50);
 
     	b1 = new JButton("Previous");
 		b1.setFont(new Font("Verdana", Font.PLAIN, 18));  
@@ -159,65 +157,69 @@ public class InsertionSort {
         b7.setBounds(620, 620, 150, 40);
 
 
-    	b1.addActionListener(new ActionListener() {
+        b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-        		mainCounter = mainCounter - 20;
-                ekAurCounter = ekAurCounter - 1;
+            	mainCounter = mainCounter - 20;
+            	ekAurCounter = ekAurCounter - 1;
 
-                if(temp[0] != s[mainCounter]) {
+            	if(temp[ekAurCounter] == 0) {
                     ol1.setForeground(Color.red);
                 } else {
                     ol1.setForeground(Color.black);
                 }
-                if(temp[1] != s[mainCounter + 1]) {
+                if(temp[ekAurCounter] == 1) {
                     ol2.setForeground(Color.red);
                 } else {
                     ol2.setForeground(Color.black);
                 }
-                if(temp[2] != s[mainCounter + 2]) {
+                if(temp[ekAurCounter] == 2) {
                     ol3.setForeground(Color.red);
                 } else {
                     ol3.setForeground(Color.black);
                 }
-                if(temp[3] != s[mainCounter + 3]) {
+                if(temp[ekAurCounter] == 3) {
                     ol4.setForeground(Color.red);
                 } else {
                     ol4.setForeground(Color.black);
                 }
-                if(temp[4] != s[mainCounter + 4]) {
+                if(temp[ekAurCounter] == 4) {
                     ol5.setForeground(Color.red);
                 } else {
                     ol5.setForeground(Color.black);
                 }
-                if(temp[5] != s[mainCounter + 5]) {
+                if(temp[ekAurCounter] == 5) {
                     ol6.setForeground(Color.red);
                 } else {
                     ol6.setForeground(Color.black);
                 }
-                if(temp[6] != s[mainCounter + 6]) {
+                if(temp[ekAurCounter] == 6) {
                     ol7.setForeground(Color.red);
                 } else {
                     ol7.setForeground(Color.black);
                 }
-                if(temp[7] != s[mainCounter + 7]) {
+                if(temp[ekAurCounter] == 7) {
                     ol8.setForeground(Color.red);
                 } else {
                     ol8.setForeground(Color.black);
                 }
-                if(temp[8] != s[mainCounter + 8]) {
+                if(temp[ekAurCounter] == 8) {
                     ol9.setForeground(Color.red);
                 } else {
                     ol9.setForeground(Color.black);
                 }
-                if(temp[9] != s[mainCounter + 9]) {
+                if(temp[ekAurCounter] == 9) {
                     ol10.setForeground(Color.red);
+                    if(res == -1) {
+                    	prompt1.setText("ELement Not Found");
+                    }
                 } else {
                     ol10.setForeground(Color.black);
                 }
 
-                prompt1.setText("Inserting : " + Integer.toString(index1[ekAurCounter]));
-                prompt2.setText("Current Index i : " + Integer.toString(index2[ekAurCounter]));
-                prompt3.setText("Current Index j : " + Integer.toString(index3[ekAurCounter]));
+                if(temp[ekAurCounter] == res) {
+                	prompt1.setText("Element Found at Index: "); 
+                	prompt2.setText(Integer.toString(ekAurCounter));
+                }
 
                 ol1.setText(Integer.toString(s[mainCounter]));
         		ol2.setText(Integer.toString(s[mainCounter + 1]));
@@ -230,74 +232,73 @@ public class InsertionSort {
         		ol9.setText(Integer.toString(s[mainCounter + 8]));
         		ol10.setText(Integer.toString(s[mainCounter + 9]));
 
-                for(int i = 0; i < 10; i++) {
-                    temp[i] = s[mainCounter + i];
-                }
-
         		mainCounter = mainCounter + 10;
                 check(mainCounter, counter);
-            }
-        });
 
-    	b2.addActionListener(new ActionListener() {
+            }
+        });	
+
+        b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
-                if(temp[0] != s[mainCounter]) {
+
+            	if(temp[ekAurCounter] == 0) {
                     ol1.setForeground(Color.green);
                 } else {
                     ol1.setForeground(Color.black);
                 }
-                if(temp[1] != s[mainCounter + 1]) {
+                if(temp[ekAurCounter] == 1) {
                     ol2.setForeground(Color.green);
                 } else {
                     ol2.setForeground(Color.black);
                 }
-                if(temp[2] != s[mainCounter + 2]) {
+                if(temp[ekAurCounter] == 2) {
                     ol3.setForeground(Color.green);
                 } else {
                     ol3.setForeground(Color.black);
                 }
-                if(temp[3] != s[mainCounter + 3]) {
+                if(temp[ekAurCounter] == 3) {
                     ol4.setForeground(Color.green);
                 } else {
                     ol4.setForeground(Color.black);
                 }
-                if(temp[4] != s[mainCounter + 4]) {
+                if(temp[ekAurCounter] == 4) {
                     ol5.setForeground(Color.green);
                 } else {
                     ol5.setForeground(Color.black);
                 }
-                if(temp[5] != s[mainCounter + 5]) {
+                if(temp[ekAurCounter] == 5) {
                     ol6.setForeground(Color.green);
                 } else {
                     ol6.setForeground(Color.black);
                 }
-                if(temp[6] != s[mainCounter + 6]) {
+                if(temp[ekAurCounter] == 6) {
                     ol7.setForeground(Color.green);
                 } else {
                     ol7.setForeground(Color.black);
                 }
-                if(temp[7] != s[mainCounter + 7]) {
+                if(temp[ekAurCounter] == 7) {
                     ol8.setForeground(Color.green);
                 } else {
                     ol8.setForeground(Color.black);
                 }
-                if(temp[8] != s[mainCounter + 8]) {
+                if(temp[ekAurCounter] == 8) {
                     ol9.setForeground(Color.green);
                 } else {
                     ol9.setForeground(Color.black);
                 }
-                if(temp[9] != s[mainCounter + 9]) {
+                if(temp[ekAurCounter] == 9) {
+                    prompt1.setText("Element Not Found"); 
                     ol10.setForeground(Color.green);
                 } else {
                     ol10.setForeground(Color.black);
                 }
 
-                prompt1.setText("Inserting : " + Integer.toString(index1[ekAurCounter]));
-                prompt2.setText("Current Index i : " + Integer.toString(index2[ekAurCounter]));
-                prompt3.setText("Current Index j : " + Integer.toString(index3[ekAurCounter]));
+                if(temp[ekAurCounter] == res) {
+                	prompt1.setText("Element Found at Index: "); 
+                	prompt2.setText(Integer.toString(ekAurCounter));
+                }
 
-                ol1.setText(Integer.toString(s[mainCounter]));
+            	ol1.setText(Integer.toString(s[mainCounter]));
         		ol2.setText(Integer.toString(s[mainCounter + 1]));
         		ol3.setText(Integer.toString(s[mainCounter + 2]));
         		ol4.setText(Integer.toString(s[mainCounter + 3]));
@@ -308,26 +309,22 @@ public class InsertionSort {
         		ol9.setText(Integer.toString(s[mainCounter + 8]));
         		ol10.setText(Integer.toString(s[mainCounter + 9]));
 
-                for(int i = 0; i < 10; i++) {
-                    temp[i] = s[mainCounter + i];
-                }
-
         		mainCounter = mainCounter + 10;
-                ekAurCounter = ekAurCounter + 1;
+        		ekAurCounter = ekAurCounter + 1;
                 check(mainCounter, counter);
             }
         });
 
-    	b3.addActionListener(new ActionListener() {
+        b3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                f.dispose();
-                new InsertionSortQuiz();
+            	f.dispose();
+                new LinearSearchQuiz();
             }
         });
 
-    	b4.addActionListener(new ActionListener() {
+        b4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                f.dispose();
+            	f.dispose();
                 new MainMenu();
             }
         });
@@ -335,7 +332,7 @@ public class InsertionSort {
         b5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                input[0] = Integer.parseInt(itf1.getText());
+            	input[0] = Integer.parseInt(itf1.getText());
                 input[1] = Integer.parseInt(itf2.getText());
                 input[2] = Integer.parseInt(itf3.getText());
                 input[3] = Integer.parseInt(itf4.getText());
@@ -346,40 +343,13 @@ public class InsertionSort {
                 input[8] = Integer.parseInt(itf9.getText());
                 input[9] = Integer.parseInt(itf10.getText());
 
-                for (int i = 1; i < 10; i++) {
-                	int newElement = input[i];
-                	int j;
-        		    
-        		    for (j = i; j > 0 && input[j - 1] > newElement; j--) {
-                		for(int k = 0; k < 10; k++) {
-                            s[counter] = input[k];
-                            counter = counter + 1;
-                        }
-                        index1[z] = newElement;
-                        index2[z] = i;
-                        index3[z] = j;
-                        z = z + 1;
-                        input[j] = input[j - 1];
-            		}
-                    for(int k = 0; k < 10; k++) {
-                        s[counter] = input[k];
-                        counter = counter + 1;
-                    }  
-                    index1[z] = newElement;
-                    index2[z] = i;
-                    index3[z] = j;
-                    z = z + 1;          		
-            		input[j] = newElement;
-       			}
+                number = Integer.parseInt(itf11.getText());
+                res = search(input, 10, number);
 
                 for(int k = 0; k < 10; k++) {
        				s[counter] = input[k];
                     counter = counter + 1;
        			}
-
-                for(int i = 0; i < 10; i++) {
-                    temp[i] = s[i];
-                }
 
        			ol1.setText(Integer.toString(s[0]));
         		ol2.setText(Integer.toString(s[1]));
@@ -391,10 +361,6 @@ public class InsertionSort {
         		ol8.setText(Integer.toString(s[7]));
         		ol9.setText(Integer.toString(s[8]));
         		ol10.setText(Integer.toString(s[9]));
-
-                prompt1.setText("Inserting : " + Integer.toString(index1[0]));
-                prompt2.setText("Current Index i : " + Integer.toString(index2[0]));
-                prompt3.setText("Current Index j : " + Integer.toString(index3[0]));
 
                 check(mainCounter, counter);
                 b5.setEnabled(false);
@@ -408,6 +374,7 @@ public class InsertionSort {
                 itf8.setEditable(false);
                 itf9.setEditable(false);
                 itf10.setEditable(false);
+                itf11.setEditable(false);
                 b6.setEnabled(true);
             }
         });
@@ -415,7 +382,7 @@ public class InsertionSort {
         b6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                itf1.setText("0");
+            	itf1.setText("0");
                 itf2.setText("0");
                 itf3.setText("0");
                 itf4.setText("0");
@@ -425,6 +392,7 @@ public class InsertionSort {
                 itf8.setText("0");
                 itf9.setText("0");
                 itf10.setText("0");
+                itf11.setText("0");
                 ol1.setText("");
                 ol2.setText("");
                 ol3.setText("");
@@ -437,7 +405,6 @@ public class InsertionSort {
                 ol10.setText("");
                 prompt1.setText("");
                 prompt2.setText("");
-                prompt3.setText("");
                 ol1.setForeground(Color.black);
                 ol2.setForeground(Color.black);
                 ol3.setForeground(Color.black);
@@ -450,7 +417,7 @@ public class InsertionSort {
                 ol10.setForeground(Color.black);
                 mainCounter = 10;
                 counter = 0;
-                z = 0; 
+                z = 0;
                 ekAurCounter = 0;
                 check(mainCounter, counter);
                 b5.setEnabled(true);
@@ -465,16 +432,17 @@ public class InsertionSort {
                 itf8.setEditable(true);
                 itf9.setEditable(true);
                 itf10.setEditable(true);
+                itf11.setEditable(true);
             }
         });
 
         b7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+            	System.exit(0);
             }
         });
 
-    	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	f.add(l);
         f.add(theory);
         f.add(code);
@@ -488,6 +456,7 @@ public class InsertionSort {
     	f.add(itf8);
     	f.add(itf9);
     	f.add(itf10);	
+    	f.add(itf11);
     	f.add(ol1);
     	f.add(ol2);
     	f.add(ol3);
@@ -498,9 +467,8 @@ public class InsertionSort {
     	f.add(ol8);
     	f.add(ol9);
     	f.add(ol10);
-        f.add(prompt1);
-        f.add(prompt2);
-        f.add(prompt3);
+    	f.add(prompt1);
+    	f.add(prompt2);
     	f.add(b1);
 		f.add(b2);
 		f.add(b3);
@@ -514,7 +482,7 @@ public class InsertionSort {
 
 	}
 
-    public void check(int mainCounter, int counter) {
+	public void check(int mainCounter, int counter) {
         
         if(mainCounter >= 10) {
             b2.setEnabled(true);
@@ -531,16 +499,25 @@ public class InsertionSort {
     
     }
 
-	public static void swap(int[] array, int i, int j) {
-        
-        if(i == j) {
-            return;
+    public int search(int[] arr, int n, int num){
+        for (int i = 0; i < n; i++) {
+            if(arr[i] == num){
+            	for(int k = 0; k < n; k++) {
+            		s[counter] = arr[k];
+            		counter = counter + 1;
+            	}
+            	temp[z] = i;
+            	z = z + 1;
+                return i;
+            }
+            for(int k = 0; k < n; k++) {
+            	s[counter] = arr[k];
+            	counter = counter + 1;
+            }
+            temp[z] = i;
+            z = z + 1;
         }
-        
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    
+        return -1;
     }
 
 }

@@ -11,11 +11,10 @@ public class MergeSort {
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10;  
 	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10;
 
-    int mainCounter = 10, ekAurMainCounter = 0;
+    int mainCounter = 10, ekAurMainCounter = 0, counter = 0, ekAurCounter = 0;
     int[] input = new int[10];
     int[] s = new int[1000];
     int[] abc = new int[1000];
-    int counter = 0, ekAurCounter = 0;
     int[] temp = new int[10];
 
 	public MergeSort() {
