@@ -6,7 +6,7 @@ public class QuizMenu {
 	
 	JFrame f;
 	JLabel l, l1, l2, l3;
-	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14;
 	
 	public QuizMenu() {
 	
@@ -68,9 +68,21 @@ public class QuizMenu {
         b10.setFont(new Font("Verdana", Font.PLAIN, 18));
         b10.setBounds(575, 250, 200, 40);
 
-        b11 = new JButton("DFS");  
+        b11 = new JButton("BFS");  
         b11.setFont(new Font("Verdana", Font.PLAIN, 18));
         b11.setBounds(1000, 200, 200, 40);
+
+        b12 = new JButton("DFS");  
+        b12.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b12.setBounds(1000, 250, 200, 40);
+
+        b13 = new JButton("Prim");  
+        b13.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b13.setBounds(1000, 300, 200, 40);
+
+        b14 = new JButton("Kruskal");  
+        b14.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b14.setBounds(1000, 350, 200, 40);
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -137,11 +149,32 @@ public class QuizMenu {
         b10.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSortQuiz();
+                new BinarySearchQuiz();
             }
         });
 
         b11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSortQuiz();
+            }
+        });
+
+        b12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSortQuiz();
+            }
+        });
+
+        b13.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSortQuiz();
+            }
+        });
+
+        b14.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
                 new BubbleSortQuiz();
@@ -164,6 +197,9 @@ public class QuizMenu {
         f.add(b9);
         f.add(b10);
         f.add(b11);
+        f.add(b12);
+        f.add(b13);
+        f.add(b14);
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);

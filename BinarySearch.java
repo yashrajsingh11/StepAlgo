@@ -2,26 +2,30 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Font;
 import java.awt.Color;
+import java.util.Arrays;
 
-public class LinearSearch {
+public class BinarySearch {
 
 	JFrame f;
 	JLabel l, l1, code, theory;
 	JButton b1, b2, b3, b4, b5, b6, b7;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10, itf11;  
-	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt1, prompt2;
+	JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10, prompt1, prompt2, prompt3, prompt4;
 
 	int[] input = new int[10];
 	int[] temp = new int[100];
 	int[] s = new int[1000];
+    int[] midIndex = new int[100];
+    int[] begIndex = new int[100];
+    int[] endIndex = new int[100];
 	int number = 0, res = -1;
 	int mainCounter = 10, counter = 0, z = 0, ekAurCounter = 0;
 
-	public LinearSearch() {
+	public BinarySearch() {
 
-		f = new JFrame("Linear Search");
+		f = new JFrame("Binary Search");
 
-		l = new JLabel("Linear Search", JLabel.CENTER);
+		l = new JLabel("Binary Search", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
 
@@ -127,7 +131,15 @@ public class LinearSearch {
 
         prompt2 = new JLabel();  
         prompt2.setFont(new Font("Verdana", Font.PLAIN, 18));
-        prompt2.setBounds(100, 600, 250, 50);
+        prompt2.setBounds(100, 600, 150, 30);
+
+        prompt3 = new JLabel();  
+        prompt3.setFont(new Font("Verdana", Font.PLAIN, 18));
+        prompt3.setBounds(100, 630, 150, 30);
+
+        prompt4 = new JLabel();  
+        prompt4.setFont(new Font("Verdana", Font.PLAIN, 18));
+        prompt4.setBounds(100, 660, 150, 30);
 
     	b1 = new JButton("Previous");
 		b1.setFont(new Font("Verdana", Font.PLAIN, 18));  
@@ -166,63 +178,68 @@ public class LinearSearch {
             	mainCounter = mainCounter - 20;
             	ekAurCounter = ekAurCounter - 1;
 
-            	if(temp[ekAurCounter] == 0) {
+            	if(midIndex[ekAurCounter] == 0 || endIndex[ekAurCounter] == 0 || begIndex[ekAurCounter] == 0) {
                     ol1.setForeground(Color.red);
                 } else {
                     ol1.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 1) {
+                if(midIndex[ekAurCounter] == 1 || endIndex[ekAurCounter] == 1 || begIndex[ekAurCounter] == 1) {
                     ol2.setForeground(Color.red);
                 } else {
                     ol2.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 2) {
+                if(midIndex[ekAurCounter] == 2 || endIndex[ekAurCounter] == 2 || begIndex[ekAurCounter] == 2) {
                     ol3.setForeground(Color.red);
                 } else {
                     ol3.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 3) {
+                if(midIndex[ekAurCounter] == 3 || endIndex[ekAurCounter] == 3 || begIndex[ekAurCounter] == 3) {
                     ol4.setForeground(Color.red);
                 } else {
                     ol4.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 4) {
+                if(midIndex[ekAurCounter] == 4 || endIndex[ekAurCounter] == 4 || begIndex[ekAurCounter] == 4) {
                     ol5.setForeground(Color.red);
                 } else {
                     ol5.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 5) {
+                if(midIndex[ekAurCounter] == 5 || endIndex[ekAurCounter] == 5 || begIndex[ekAurCounter] == 5) {
                     ol6.setForeground(Color.red);
                 } else {
                     ol6.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 6) {
+                if(midIndex[ekAurCounter] == 6 || endIndex[ekAurCounter] == 6 || begIndex[ekAurCounter] == 6) {
                     ol7.setForeground(Color.red);
                 } else {
                     ol7.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 7) {
+                if(midIndex[ekAurCounter] == 7 || endIndex[ekAurCounter] == 7 || begIndex[ekAurCounter] == 7) {
                     ol8.setForeground(Color.red);
                 } else {
                     ol8.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 8) {
+                if(midIndex[ekAurCounter] == 8 || endIndex[ekAurCounter] == 8 || begIndex[ekAurCounter] == 8) {
                     ol9.setForeground(Color.red);
                 } else {
                     ol9.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 9) {
+                if(midIndex[ekAurCounter] == 9 || endIndex[ekAurCounter] == 9 || begIndex[ekAurCounter] == 9) { 
                     ol10.setForeground(Color.red);
-                    if(res == -1) {
-                    	prompt1.setText("Element Not Found");
+                    if(begIndex[ekAurCounter] == 9) {
+                        if(midIndex[ekAurCounter] != res) {
+                            prompt1.setText("Element Not Found"); 
+                        }
                     }
                 } else {
                     ol10.setForeground(Color.black);
                 }
 
-                if(temp[ekAurCounter] == res) {
-                	prompt1.setText("Element Found at Index: "); 
-                	prompt2.setText(Integer.toString(ekAurCounter));
+                prompt2.setText("Beg Index : " + Integer.toString(begIndex[ekAurCounter]));
+                prompt3.setText("Mid Index : " + Integer.toString(midIndex[ekAurCounter]));
+                prompt4.setText("End Index : " + Integer.toString(endIndex[ekAurCounter]));
+
+                if(midIndex[ekAurCounter] == res) {
+                    prompt1.setText("Element " + number + " Found "); 
                 }
 
                 ol1.setText(Integer.toString(s[mainCounter]));
@@ -245,61 +262,68 @@ public class LinearSearch {
         b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-            	if(temp[ekAurCounter] == 0) {
+            	if(midIndex[ekAurCounter] == 0 || endIndex[ekAurCounter] == 0 || begIndex[ekAurCounter] == 0) {
                     ol1.setForeground(Color.green);
                 } else {
                     ol1.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 1) {
+                if(midIndex[ekAurCounter] == 1 || endIndex[ekAurCounter] == 1 || begIndex[ekAurCounter] == 1) {
                     ol2.setForeground(Color.green);
                 } else {
                     ol2.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 2) {
+                if(midIndex[ekAurCounter] == 2 || endIndex[ekAurCounter] == 2 || begIndex[ekAurCounter] == 2) {
                     ol3.setForeground(Color.green);
                 } else {
                     ol3.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 3) {
+                if(midIndex[ekAurCounter] == 3 || endIndex[ekAurCounter] == 3 || begIndex[ekAurCounter] == 3) {
                     ol4.setForeground(Color.green);
                 } else {
                     ol4.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 4) {
+                if(midIndex[ekAurCounter] == 4 || endIndex[ekAurCounter] == 4 || begIndex[ekAurCounter] == 4) {
                     ol5.setForeground(Color.green);
                 } else {
                     ol5.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 5) {
+                if(midIndex[ekAurCounter] == 5 || endIndex[ekAurCounter] == 5 || begIndex[ekAurCounter] == 5) {
                     ol6.setForeground(Color.green);
                 } else {
                     ol6.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 6) {
+                if(midIndex[ekAurCounter] == 6 || endIndex[ekAurCounter] == 6 || begIndex[ekAurCounter] == 6) {
                     ol7.setForeground(Color.green);
                 } else {
                     ol7.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 7) {
+                if(midIndex[ekAurCounter] == 7 || endIndex[ekAurCounter] == 7 || begIndex[ekAurCounter] == 7) {
                     ol8.setForeground(Color.green);
                 } else {
                     ol8.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 8) {
+                if(midIndex[ekAurCounter] == 8 || endIndex[ekAurCounter] == 8 || begIndex[ekAurCounter] == 8) {
                     ol9.setForeground(Color.green);
                 } else {
                     ol9.setForeground(Color.black);
                 }
-                if(temp[ekAurCounter] == 9) {
-                    prompt1.setText("Element Not Found"); 
+                if(midIndex[ekAurCounter] == 9 || endIndex[ekAurCounter] == 9 || begIndex[ekAurCounter] == 9) { 
                     ol10.setForeground(Color.green);
+                    if(begIndex[ekAurCounter] == 9) {
+                        if(midIndex[ekAurCounter] != res) {
+                            prompt1.setText("Element Not Found"); 
+                        }
+                    }
                 } else {
                     ol10.setForeground(Color.black);
                 }
 
-                if(temp[ekAurCounter] == res) {
-                	prompt1.setText("Element Found at Index: "); 
-                	prompt2.setText(Integer.toString(ekAurCounter));
+                prompt2.setText("Beg Index : " + Integer.toString(begIndex[ekAurCounter]));
+                prompt3.setText("Mid Index : " + Integer.toString(midIndex[ekAurCounter]));
+                prompt4.setText("End Index : " + Integer.toString(endIndex[ekAurCounter]));
+
+                if(midIndex[ekAurCounter] == res) {
+                	prompt1.setText("Element " + number + " Found "); 
                 }
 
             	ol1.setText(Integer.toString(s[mainCounter]));
@@ -322,7 +346,7 @@ public class LinearSearch {
         b3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	f.dispose();
-                new LinearSearchQuiz();
+                new BinarySearchQuiz();
             }
         });
 
@@ -347,13 +371,13 @@ public class LinearSearch {
                 input[8] = Integer.parseInt(itf9.getText());
                 input[9] = Integer.parseInt(itf10.getText());
 
-                number = Integer.parseInt(itf11.getText());
-                res = search(input, 10, number);
-
+                Arrays.sort(input);
                 for(int k = 0; k < 10; k++) {
-       				s[counter] = input[k];
+                    s[counter] = input[k];
                     counter = counter + 1;
-       			}
+                }
+                number = Integer.parseInt(itf11.getText());
+                res = search(input, 0, 9, number);
 
        			ol1.setText(Integer.toString(s[0]));
         		ol2.setText(Integer.toString(s[1]));
@@ -409,6 +433,8 @@ public class LinearSearch {
                 ol10.setText("");
                 prompt1.setText("");
                 prompt2.setText("");
+                prompt3.setText("");
+                prompt4.setText("");
                 ol1.setForeground(Color.black);
                 ol2.setForeground(Color.black);
                 ol3.setForeground(Color.black);
@@ -474,6 +500,8 @@ public class LinearSearch {
     	f.add(ol10);
     	f.add(prompt1);
     	f.add(prompt2);
+        f.add(prompt3);
+        f.add(prompt4);
     	f.add(b1);
 		f.add(b2);
 		f.add(b3);
@@ -504,23 +532,26 @@ public class LinearSearch {
     
     }
 
-    public int search(int[] arr, int n, int num){
-        for (int i = 0; i < n; i++) {
-            if(arr[i] == num){
-            	for(int k = 0; k < n; k++) {
-            		s[counter] = arr[k];
-            		counter = counter + 1;
-            	}
-            	temp[z] = i;
-            	z = z + 1;
-                return i;
+    public int search(int[] arr, int beg, int end, int num){
+        if(beg<=end){
+            int mid = (beg+end)/2;
+            for(int k = 0; k < 10; k++) {
+                s[counter] = arr[k];
+                counter = counter + 1;
             }
-            for(int k = 0; k < n; k++) {
-            	s[counter] = arr[k];
-            	counter = counter + 1;
-            }
-            temp[z] = i;
+            midIndex[z] = mid;
+            begIndex[z] = beg;
+            endIndex[z] = end;
             z = z + 1;
+            if(arr[mid] == num){
+                return mid;
+            }
+            if(arr[mid]>num){
+                return search(arr,beg,mid-1,num);
+            }
+            else{
+                return search(arr,mid+1,end,num);
+            }
         }
         return -1;
     }
