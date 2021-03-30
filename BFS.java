@@ -1,16 +1,17 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.awt.Font;
 import java.awt.Color;
 import java.util.LinkedList;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.Line2D;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
-public class BFS extends JFrame{
+public class BFS {
 
 	JFrame f;
-	JLabel l, code, theory;
+	JLabel l, code, theory, l1, l2;
 	JButton b1, b2, b3, b4, b5, b6, b7;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10, itf11, itf12, itf13, itf14, itf15, itf16, itf17, itf18, itf19, itf20;  
 	// JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol7, ol8, ol9, ol10;
@@ -34,14 +35,27 @@ public class BFS extends JFrame{
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
 
-        theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
-        theory.setFont(new Font("Verdana", Font.PLAIN, 18));
-        theory.setBounds(100, 100, 600, 280);
+        // theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
+        // theory.setFont(new Font("Verdana", Font.PLAIN, 18));
+        // theory.setBounds(100, 100, 600, 280);
 
-        code = new JLabel("<html>for (int i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
-        code.setFont(new Font("Verdana", Font.PLAIN, 18));
-        code.setBounds(800, 100, 500, 280);
-
+        // code = new JLabel("<html>for (int i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        // code.setFont(new Font("Verdana", Font.PLAIN, 18));
+        // code.setBounds(800, 100, 500, 280);
+        try {
+	        BufferedImage img = ImageIO.read(this.getClass().getResource("unnamed.png"));
+        	l1 = new JLabel(new ImageIcon(img));
+        	l1.setBounds(800, 100, 500, 280);
+    	} catch(IOException ex) {
+    		//handle exception
+    	}
+    	try {
+	        BufferedImage img1 = ImageIO.read(this.getClass().getResource("horizontal-line-divider-png-11552244246ijcprmv8rz.png"));
+    	    l2 = new JLabel(new ImageIcon(img1));
+            l2.setBounds(800, 100, 500, 280);
+        } catch(IOException ex) {
+        	//Handle Exception
+        }
    		itf1 = new JTextField("0");  
     	itf1.setBounds(200, 400, 50, 30);
         itf1.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -501,8 +515,10 @@ public class BFS extends JFrame{
 
     	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	f.add(l);
-        f.add(theory);
-        f.add(code);
+        //f.add(theory);
+        //f.add(code);
+        f.add(l1);
+        f.add(l2);
     	f.add(itf1);
     	f.add(itf2);
     	f.add(itf3);
