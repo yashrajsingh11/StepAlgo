@@ -6,7 +6,7 @@ public class MainMenu {
 	
 	JFrame f;
 	JLabel l, l1, l2, l3;
-	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17;
 	
 	public MainMenu() {
 	
@@ -83,6 +83,18 @@ public class MainMenu {
         b14 = new JButton("Kruskal");  
         b14.setFont(new Font("Verdana", Font.PLAIN, 18));
         b14.setBounds(1000, 350, 200, 40);
+
+        b15 = new JButton("Dijkstra");  
+        b15.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b15.setBounds(1000, 400, 200, 40);
+
+        b16 = new JButton("Bellman-Ford");  
+        b16.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b16.setBounds(1000, 450, 200, 40);
+
+        b17 = new JButton("Floyd-Warshall");  
+        b17.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b17.setBounds(1000, 500, 200, 40);
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -181,6 +193,27 @@ public class MainMenu {
             }
         });
 
+        b15.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSort();
+            }
+        });
+
+        b16.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSort();
+            }
+        });
+
+        b17.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new BubbleSort();
+            }
+        });
+
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(l);
 		f.add(l1);
@@ -200,6 +233,9 @@ public class MainMenu {
         f.add(b12);
         f.add(b13);
         f.add(b14);
+        f.add(b15);
+        f.add(b16);
+        f.add(b17);
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);

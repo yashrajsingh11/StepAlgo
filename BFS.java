@@ -22,7 +22,7 @@ public class BFS {
     int[][] input = new int[10][10];
     LinkedList<Integer> adjList[] = new LinkedList[20];
     int v, startingVertex;
-    int[] s = new int[600];
+    int[] index1 = new int[600];
     int[] index = new int[60];
     int counter = 0, z = 0, mainCounter = 0, ekAurCounter = 0;
 
@@ -358,95 +358,121 @@ public class BFS {
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-        		mainCounter = mainCounter - 20;
+        		
+        		mainCounter = mainCounter - (2 * v);
+        		ekAurCounter = ekAurCounter - 2;
 
-          //       if(temp[0] != s[mainCounter]) {
-          //           ol1.setForeground(Color.red);
-          //       } else {
-          //           ol1.setForeground(Color.black);
-          //       }
-          //       if(temp[1] != s[mainCounter + 1]) {
-          //           ol2.setForeground(Color.red);
-          //       } else {
-          //           ol2.setForeground(Color.black);
-          //       }
-          //       if(temp[2] != s[mainCounter + 2]) {
-          //           ol3.setForeground(Color.red);
-          //       } else {
-          //           ol3.setForeground(Color.black);
-          //       }
-          //       if(temp[3] != s[mainCounter + 3]) {
-          //           ol4.setForeground(Color.red);
-          //       } else {
-          //           ol4.setForeground(Color.black);
-          //       }
-          //       if(temp[4] != s[mainCounter + 4]) {
-          //           ol5.setForeground(Color.red);
-          //       } else {
-          //           ol5.setForeground(Color.black);
-          //       }
-          //       if(temp[5] != s[mainCounter + 5]) {
-          //           ol6.setForeground(Color.red);
-          //       } else {
-          //           ol6.setForeground(Color.black);
-          //       }
+        		if(index1[mainCounter] == 1) {
+                    ol1.setForeground(Color.red);
+                } else if(index1[mainCounter] == 0){
+                    ol1.setForeground(Color.orange);
+                } else {
+                	ol1.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 1] == 1) {
+                    ol2.setForeground(Color.red);
+                } else if(index1[mainCounter + 1] == 0){
+                    ol2.setForeground(Color.orange);
+                } else {
+                	ol2.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 2] == 1) {
+                    ol3.setForeground(Color.red);
+                } else if(index1[mainCounter + 2] == 0){
+                    ol3.setForeground(Color.orange);
+                } else {
+                	ol3.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 3] == 1) {
+                    ol4.setForeground(Color.red);
+                } else if(index1[mainCounter + 3] == 0){
+                    ol4.setForeground(Color.orange);
+                } else {
+                	ol4.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 4] == 1) {
+                    ol5.setForeground(Color.red);
+                } else if(index1[mainCounter + 4] == 0){
+                    ol5.setForeground(Color.orange);
+                } else {
+                	ol5.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 5] == 1) {
+                    ol6.setForeground(Color.red);
+                } else if(index1[mainCounter + 5] == 0){
+                    ol6.setForeground(Color.orange);
+                } else {
+                	ol6.setForeground(Color.black);
+            	}
 
-          //       for(int i = 0; i < 10; i++) {
-          //           temp[i] = s[mainCounter + i];
-          //       }
+            	prompt.setText("Current Vertex : " + Integer.toString(index[ekAurCounter]));
 
-        		// mainCounter = mainCounter + 10;
-          //       check(mainCounter, counter);
+            	ekAurCounter = ekAurCounter + 1;
+        		mainCounter = mainCounter + v;
+                check(mainCounter, counter);
+            
             }
         });
 
     	b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
-          //       if(temp[0] != s[mainCounter]) {
-          //           ol1.setForeground(Color.green);
-          //       } else {
-          //           ol1.setForeground(Color.black);
-          //       }
-          //       if(temp[1] != s[mainCounter + 1]) {
-          //           ol2.setForeground(Color.green);
-          //       } else {
-          //           ol2.setForeground(Color.black);
-          //       }
-          //       if(temp[2] != s[mainCounter + 2]) {
-          //           ol3.setForeground(Color.green);
-          //       } else {
-          //           ol3.setForeground(Color.black);
-          //       }
-          //       if(temp[3] != s[mainCounter + 3]) {
-          //           ol4.setForeground(Color.green);
-          //       } else {
-          //           ol4.setForeground(Color.black);
-          //       }
-          //       if(temp[4] != s[mainCounter + 4]) {
-          //           ol5.setForeground(Color.green);
-          //       } else {
-          //           ol5.setForeground(Color.black);
-          //       }
-          //       if(temp[5] != s[mainCounter + 5]) {
-          //           ol6.setForeground(Color.green);
-          //       } else {
-          //           ol6.setForeground(Color.black);
-          //       }
+                if(index1[mainCounter] == 1) {
+                    ol1.setForeground(Color.green);
+                } else if(index1[mainCounter] == 0){
+                    ol1.setForeground(Color.cyan);
+                } else {
+                	ol1.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 1] == 1) {
+                    ol2.setForeground(Color.green);
+                } else if(index1[mainCounter + 1] == 0){
+                    ol2.setForeground(Color.cyan);
+                } else {
+                	ol2.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 2] == 1) {
+                    ol3.setForeground(Color.green);
+                } else if(index1[mainCounter + 2] == 0){
+                    ol3.setForeground(Color.cyan);
+                } else {
+                	ol3.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 3] == 1) {
+                    ol4.setForeground(Color.green);
+                } else if(index1[mainCounter + 3] == 0){
+                    ol4.setForeground(Color.cyan);
+                } else {
+                	ol4.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 4] == 1) {
+                    ol5.setForeground(Color.green);
+                } else if(index1[mainCounter + 4] == 0){
+                    ol5.setForeground(Color.cyan);
+                } else {
+                	ol5.setForeground(Color.black);
+            	}
+            	if(index1[mainCounter + 5] == 1) {
+                    ol6.setForeground(Color.green);
+                } else if(index1[mainCounter + 5] == 0){
+                    ol6.setForeground(Color.cyan);
+                } else {
+                	ol6.setForeground(Color.black);
+            	}
 
-          //       for(int i = 0; i < 10; i++) {
-          //           temp[i] = s[mainCounter + i];
-          //       }
+            	prompt.setText("Current Vertex : " + Integer.toString(index[ekAurCounter]));
 
-        		// mainCounter = mainCounter + 10;
-          //       check(mainCounter, counter);
+        		mainCounter = mainCounter + v;
+        		ekAurCounter = ekAurCounter + 1;
+                check(mainCounter, counter);
+            
             }
         });
 
     	b3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSortQuiz();
+                new BFSQuiz();
             }
         });
 
@@ -480,6 +506,7 @@ public class BFS {
                 input[7][1] = Integer.parseInt(itf18.getText());
                 input[8][1] = Integer.parseInt(itf19.getText());
                 input[9][1] = Integer.parseInt(itf20.getText());
+                
                 v = Integer.parseInt(vertexNum.getText());
                 startingVertex = Integer.parseInt(starting.getText());
 
@@ -500,9 +527,18 @@ public class BFS {
             	        addEdge(x, y);
                 	}
                 	mainCounter = v;
+
+                	for(int i = 0; i < v; i ++) {
+                		index1[counter] = -1;
+                		counter = counter + 1;
+                	}
+                	index[z] = -1;
+                	z = z + 1; 
+
                 	myBFS(v, startingVertex);
 
-
+                	prompt.setText("Current Vertex : " + Integer.toString(index[ekAurCounter]));
+                	ekAurCounter = ekAurCounter + 1;
 
 	                check(mainCounter, counter);
     	            ol1.setText("0");
@@ -577,8 +613,10 @@ public class BFS {
                 ol4.setForeground(Color.black);
                 ol5.setForeground(Color.black);
                 ol6.setForeground(Color.black);
-                mainCounter = 10;
+                mainCounter = 0;
                 counter = 0;
+                z = 0;
+                ekAurCounter = 0;
                 check(mainCounter, counter);
                 b5.setEnabled(true);
                 b6.setEnabled(false);
@@ -742,12 +780,15 @@ public class BFS {
 
     	int res = 1;
     	int[] myArr = new int[20];
+    	
     	for(int i = 0; i < 10; i++) {
     		myArr[i] = input[i][0];
     	} 
+    	
     	for(int i = 10; i < 20; i++) {
     		myArr[i] = input[i - 10][1];
     	}
+    	
     	for (int i = 1; i < 20; i++) {
         	int j = 0;
         	for (j = 0; j < i; j++) {
@@ -767,6 +808,7 @@ public class BFS {
     	for(int i = 0; i < 10; i++) {
     		int a = input[i][0];
     		int b = input[i][1];
+    		
     		if(a == 0) {
     			if(b == 1) {
     				l01.setVisible(true);
@@ -874,7 +916,6 @@ public class BFS {
         }
 
         visited[s] = 0;
-
         enqueue(s);
 
         while (!QueueEmpty()){
@@ -883,6 +924,7 @@ public class BFS {
             z = z + 1;
             dequeue();
             visited[s] = 1;
+            
             for (int i = 0; i < adjList[s].size(); i++){
                 int x = adjList[s].get(i);
                 if(visited[x] != 1){
@@ -890,16 +932,9 @@ public class BFS {
                     enqueue(x);
                 }
             }
+            
             for(int i = 0; i < v; i++){
-                if(visited[i] == 0){ 
-                	s[counter] = 0;
-                }
-                else if(visited[i] == 1){
-                    s[counter] = 1;
-                }
-                else{
-                    s[counter] = 2;
-                }
+                index1[counter] = visited[i];
                 counter = counter + 1;
             }
         }
