@@ -31,23 +31,23 @@ public class HeapSortQuiz {
     	b2.setFont(new Font("Verdana", Font.PLAIN, 18));
     	b2.setBounds(315, 620, 250, 40);
 
-    	q1 = new JLabel("1) What Is The Time Complexity Of Bubble Sort?");
+    	q1 = new JLabel("1.On which algorithm is heap sort based on?");
     	q1.setFont(new Font("Verdana", Font.PLAIN, 18));
         q1.setBounds(100, 100, 900, 40);
 
-        rb11 = new JRadioButton("O(n)");
+        rb11 = new JRadioButton("a) Fibonacci heap");
 		rb11.setBounds(100, 150, 300, 40);
 		rb11.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb12 = new JRadioButton("O(n^2)");
+		rb12 = new JRadioButton("b) Binary tree");
 		rb12.setBounds(400, 150, 300, 40);
 		rb12.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb13 = new JRadioButton("O(n^3)");
+		rb13 = new JRadioButton("c) Priority queue");
 		rb13.setBounds(700, 150, 300, 40);
 		rb13.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb14 = new JRadioButton("O(nlogn)");
+		rb14 = new JRadioButton("d) FIFO");
 		rb14.setBounds(1000, 150, 300, 40);
 		rb14.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -57,23 +57,23 @@ public class HeapSortQuiz {
 		bg1.add(rb13);
 		bg1.add(rb14);
 
-    	q2 = new JLabel("2) Which Two Numbers Will Be Swapped First In The Array- 2 4 1 5 3 ?");
+    	q2 = new JLabel("2. In what time can a binary heap be built?");
     	q2.setFont(new Font("Verdana", Font.PLAIN, 18));
         q2.setBounds(100, 200, 900, 40);
 
-        rb21 = new JRadioButton("4 and 3");
+        rb21 = new JRadioButton("a) O(N)");
 		rb21.setBounds(100, 250, 300, 40);
 		rb21.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb22 = new JRadioButton("5 and 3");
+		rb22 = new JRadioButton("b) O(N log N)");
 		rb22.setBounds(400, 250, 300, 40);
 		rb22.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb23 = new JRadioButton("2 and 1");
+		rb23 = new JRadioButton("c) O(log N)");
 		rb23.setBounds(700, 250, 300, 40);
 		rb23.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb24 = new JRadioButton("4 and 1");
+		rb24 = new JRadioButton("d) O(N^2)");
 		rb24.setBounds(1000, 250, 300, 40);
 		rb24.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -83,23 +83,23 @@ public class HeapSortQuiz {
 		bg2.add(rb23);
 		bg2.add(rb24);
 
-		q3 = new JLabel("Question 3 Here");
+		q3 = new JLabel("3. In heap sort, after deleting the last minimum element, the array will contain elements in?");
     	q3.setFont(new Font("Verdana", Font.PLAIN, 18));
         q3.setBounds(100, 300, 900, 40);
 
-        rb31 = new JRadioButton("Option 1");
+        rb31 = new JRadioButton("a) increasing sorting order");
 		rb31.setBounds(100, 350, 300, 40);
 		rb31.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb32 = new JRadioButton("Option 2");
+		rb32 = new JRadioButton("b) decreasing sorting order");
 		rb32.setBounds(400, 350, 300, 40);
 		rb32.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb33 = new JRadioButton("Option 3");
+		rb33 = new JRadioButton("c) tree inorder");
 		rb33.setBounds(700, 350, 300, 40);
 		rb33.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb34 = new JRadioButton("Option 4");
+		rb34 = new JRadioButton("d) tree preorder");
 		rb34.setBounds(1000, 350, 300, 40);
 		rb34.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -109,23 +109,23 @@ public class HeapSortQuiz {
 		bg3.add(rb33);
 		bg3.add(rb34);
 
-		q4 = new JLabel("Question 4 Here");
+		q4 = new JLabel("4. What is the typical running time of a heap sort algorithm?");
     	q4.setFont(new Font("Verdana", Font.PLAIN, 18));
         q4.setBounds(100, 400, 900, 40);
 
-        rb41 = new JRadioButton("Option 1");
+        rb41 = new JRadioButton("a) O(N)");
 		rb41.setBounds(100, 450, 300, 40);
 		rb41.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb42 = new JRadioButton("Option 2");
+		rb42 = new JRadioButton("b) O(N log N)");
 		rb42.setBounds(400, 450, 300, 40);
 		rb42.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb43 = new JRadioButton("Option 3");
+		rb43 = new JRadioButton("c) O(log N)");
 		rb43.setBounds(700, 450, 300, 40);
 		rb43.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb44 = new JRadioButton("Option 4");
+		rb44 = new JRadioButton("d) O(N^2)");
 		rb44.setBounds(1000, 450, 300, 40);
 		rb44.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -135,23 +135,23 @@ public class HeapSortQuiz {
 		bg4.add(rb43);
 		bg4.add(rb44);
 
-		q5 = new JLabel("Question 5 Here");
+		q5 = new JLabel("5. What is the average number of comparisons used to heap sort a random permutation of N distinct items?");
     	q5.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q5.setBounds(100, 500, 900, 40);
+        q5.setBounds(100, 500, 1000, 40);
 
-        rb51 = new JRadioButton("Option 1");
+        rb51 = new JRadioButton("a) 2N log N-O(N)");
 		rb51.setBounds(100, 550, 300, 40);
 		rb51.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb52 = new JRadioButton("Option 2");
+		rb52 = new JRadioButton("b) 2N log N-O(N log N)");
 		rb52.setBounds(400, 550, 300, 40);
 		rb52.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb53 = new JRadioButton("Option 3");
+		rb53 = new JRadioButton("c) 2N log N-O(N log log N)");
 		rb53.setBounds(700, 550, 300, 40);
 		rb53.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb54 = new JRadioButton("Option 4");
+		rb54 = new JRadioButton("d) 2N log N-O(log N)");
 		rb54.setBounds(1000, 550, 300, 40);
 		rb54.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -163,19 +163,19 @@ public class HeapSortQuiz {
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(rb12.isSelected()) {
+                if(rb13.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb24.isSelected()) {
+                if(rb21.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb31.isSelected()) {
+                if(rb32.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb43.isSelected()) {
+                if(rb42.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb51.isSelected()) {
+                if(rb54.isSelected()) {
                 	score = score + 5;
                 }
                 try {

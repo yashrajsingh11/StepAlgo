@@ -31,23 +31,23 @@ public class MergeSortQuiz {
     	b2.setFont(new Font("Verdana", Font.PLAIN, 18));
     	b2.setBounds(315, 620, 250, 40);
 
-    	q1 = new JLabel("1) What Is The Time Complexity Of Bubble Sort?");
+    	q1 = new JLabel("1. Merge sort uses which of the following technique to implement sorting?");
     	q1.setFont(new Font("Verdana", Font.PLAIN, 18));
         q1.setBounds(100, 100, 900, 40);
 
-        rb11 = new JRadioButton("O(n)");
+        rb11 = new JRadioButton("a) backtracking");
 		rb11.setBounds(100, 150, 300, 40);
 		rb11.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb12 = new JRadioButton("O(n^2)");
+		rb12 = new JRadioButton("b) greedy algorithm");
 		rb12.setBounds(400, 150, 300, 40);
 		rb12.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb13 = new JRadioButton("O(n^3)");
+		rb13 = new JRadioButton("c) divide and conquer");
 		rb13.setBounds(700, 150, 300, 40);
 		rb13.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb14 = new JRadioButton("O(nlogn)");
+		rb14 = new JRadioButton("d) dynamic programming");
 		rb14.setBounds(1000, 150, 300, 40);
 		rb14.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -57,23 +57,23 @@ public class MergeSortQuiz {
 		bg1.add(rb13);
 		bg1.add(rb14);
 
-    	q2 = new JLabel("2) Which Two Numbers Will Be Swapped First In The Array- 2 4 1 5 3 ?");
+    	q2 = new JLabel("2. What is the average case time complexity of merge sort?");
     	q2.setFont(new Font("Verdana", Font.PLAIN, 18));
         q2.setBounds(100, 200, 900, 40);
 
-        rb21 = new JRadioButton("4 and 3");
+        rb21 = new JRadioButton("a) O(n log n)");
 		rb21.setBounds(100, 250, 300, 40);
 		rb21.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb22 = new JRadioButton("5 and 3");
+		rb22 = new JRadioButton("b) O(n^2)");
 		rb22.setBounds(400, 250, 300, 40);
 		rb22.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb23 = new JRadioButton("2 and 1");
+		rb23 = new JRadioButton("c) O(n^2 log n)");
 		rb23.setBounds(700, 250, 300, 40);
 		rb23.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb24 = new JRadioButton("4 and 1");
+		rb24 = new JRadioButton("d) O(n log n^2)");
 		rb24.setBounds(1000, 250, 300, 40);
 		rb24.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -83,23 +83,23 @@ public class MergeSortQuiz {
 		bg2.add(rb23);
 		bg2.add(rb24);
 
-		q3 = new JLabel("Question 3 Here");
+		q3 = new JLabel("3.  Which of the following is not a variant of merge sort?");
     	q3.setFont(new Font("Verdana", Font.PLAIN, 18));
         q3.setBounds(100, 300, 900, 40);
 
-        rb31 = new JRadioButton("Option 1");
+        rb31 = new JRadioButton("a) in-place merge sort");
 		rb31.setBounds(100, 350, 300, 40);
 		rb31.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb32 = new JRadioButton("Option 2");
+		rb32 = new JRadioButton("b) bottom up merge sort");
 		rb32.setBounds(400, 350, 300, 40);
 		rb32.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb33 = new JRadioButton("Option 3");
+		rb33 = new JRadioButton("c) top down merge sort");
 		rb33.setBounds(700, 350, 300, 40);
 		rb33.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb34 = new JRadioButton("Option 4");
+		rb34 = new JRadioButton("d) linear merge sort");
 		rb34.setBounds(1000, 350, 300, 40);
 		rb34.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -109,23 +109,23 @@ public class MergeSortQuiz {
 		bg3.add(rb33);
 		bg3.add(rb34);
 
-		q4 = new JLabel("Question 4 Here");
+		q4 = new JLabel("4. What will be the best case time complexity of merge sort?");
     	q4.setFont(new Font("Verdana", Font.PLAIN, 18));
         q4.setBounds(100, 400, 900, 40);
 
-        rb41 = new JRadioButton("Option 1");
+        rb41 = new JRadioButton("a) O(n log n)");
 		rb41.setBounds(100, 450, 300, 40);
 		rb41.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb42 = new JRadioButton("Option 2");
+		rb42 = new JRadioButton("b) O(n2)");
 		rb42.setBounds(400, 450, 300, 40);
 		rb42.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb43 = new JRadioButton("Option 3");
+		rb43 = new JRadioButton("c) O(n2 log n)");
 		rb43.setBounds(700, 450, 300, 40);
 		rb43.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb44 = new JRadioButton("Option 4");
+		rb44 = new JRadioButton("d) O(n log n2)");
 		rb44.setBounds(1000, 450, 300, 40);
 		rb44.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -135,23 +135,23 @@ public class MergeSortQuiz {
 		bg4.add(rb43);
 		bg4.add(rb44);
 
-		q5 = new JLabel("Question 5 Here");
+		q5 = new JLabel("5. What is the worst case time complexity of merge sort?");
     	q5.setFont(new Font("Verdana", Font.PLAIN, 18));
         q5.setBounds(100, 500, 900, 40);
 
-        rb51 = new JRadioButton("Option 1");
+        rb51 = new JRadioButton("a) O(n log n)");
 		rb51.setBounds(100, 550, 300, 40);
 		rb51.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb52 = new JRadioButton("Option 2");
+		rb52 = new JRadioButton("b) O(n^2)");
 		rb52.setBounds(400, 550, 300, 40);
 		rb52.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb53 = new JRadioButton("Option 3");
+		rb53 = new JRadioButton("c) O(n^2 log n)");
 		rb53.setBounds(700, 550, 300, 40);
 		rb53.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb54 = new JRadioButton("Option 4");
+		rb54 = new JRadioButton("d) O(n log n^2)");
 		rb54.setBounds(1000, 550, 300, 40);
 		rb54.setFont(new Font("Verdana", Font.PLAIN, 18));
 

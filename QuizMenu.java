@@ -175,7 +175,7 @@ public class QuizMenu {
         b12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSortQuiz();
+                new DFSQuiz();
             }
         });
 

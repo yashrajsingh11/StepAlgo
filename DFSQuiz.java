@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class BFSQuiz {
+public class DFSQuiz {
 
 	JFrame f;
 	JLabel l, q1, q2, q3, q4, q5;	
@@ -15,9 +15,9 @@ public class BFSQuiz {
 
 	int score = 0;
 
-	public BFSQuiz() {
+	public DFSQuiz() {
 		
-		f = new JFrame("Breadth-First Search Quiz");
+		f = new JFrame("Depth-First Search Quiz");
 
 		l = new JLabel("QUIZ", JLabel.CENTER);
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
@@ -31,7 +31,7 @@ public class BFSQuiz {
     	b2.setFont(new Font("Verdana", Font.PLAIN, 18));
     	b2.setBounds(315, 620, 250, 40);
 
-    	q1 = new JLabel("1. Breadth First Search is equivalent to which of the traversal in the Binary Trees?");
+    	q1 = new JLabel("1. Depth First Search is equivalent to which of the traversal in the Binary Trees?");
     	q1.setFont(new Font("Verdana", Font.PLAIN, 18));
         q1.setBounds(100, 100, 900, 40);
 
@@ -57,7 +57,7 @@ public class BFSQuiz {
 		bg1.add(rb13);
 		bg1.add(rb14);
 
-    	q2 = new JLabel("2. Time Complexity of Breadth First Search is? (V: number of vertices, E: number of edges)");
+    	q2 = new JLabel("2. Time Complexity of DFS is? (V: number of vertices, E: number of edges)");
     	q2.setFont(new Font("Verdana", Font.PLAIN, 18));
         q2.setBounds(100, 200, 900, 40);
 
@@ -83,23 +83,23 @@ public class BFSQuiz {
 		bg2.add(rb23);
 		bg2.add(rb24);
 
-		q3 = new JLabel("3. In BFS, how many times a node is visited?");
+		q3 = new JLabel("3. The Data structure used in standard implementation of Breadth First Search is?");
     	q3.setFont(new Font("Verdana", Font.PLAIN, 18));
         q3.setBounds(100, 300, 900, 40);
 
-        rb31 = new JRadioButton("a) Once");
+        rb31 = new JRadioButton("a) Stack");
 		rb31.setBounds(100, 350, 300, 40);
 		rb31.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb32 = new JRadioButton("b) Twice");
+		rb32 = new JRadioButton("b) Queue");
 		rb32.setBounds(400, 350, 300, 40);
 		rb32.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb33 = new JRadioButton("<html>c) Equivalent to number of<br>&nbsp;&nbsp;&nbsp; indegree of the node</html>");
-		rb33.setBounds(700, 350, 300, 50);
+		rb33 = new JRadioButton("c) Linked List");
+		rb33.setBounds(700, 350, 300, 40);
 		rb33.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb34 = new JRadioButton("d) Thrice");
+		rb34 = new JRadioButton("d) Tree");
 		rb34.setBounds(1000, 350, 300, 40);
 		rb34.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -109,23 +109,23 @@ public class BFSQuiz {
 		bg3.add(rb33);
 		bg3.add(rb34);
 
-		q4 = new JLabel("4. The Data structure used in standard implementation of Breadth First Search is?");
+		q4 = new JLabel("4. A graph has unique Depth First Search when __________.");
     	q4.setFont(new Font("Verdana", Font.PLAIN, 18));
         q4.setBounds(100, 400, 900, 40);
 
-        rb41 = new JRadioButton("a) Stack");
+        rb41 = new JRadioButton("a) It is a Binary Tree");
 		rb41.setBounds(100, 450, 300, 40);
 		rb41.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb42 = new JRadioButton("b) Queue");
+		rb42 = new JRadioButton("b) It is a Linked List");
 		rb42.setBounds(400, 450, 300, 40);
 		rb42.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb43 = new JRadioButton("c) Linked List");
+		rb43 = new JRadioButton("c) It is a n-ary Tree");
 		rb43.setBounds(700, 450, 300, 40);
 		rb43.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb44 = new JRadioButton("d) Tree");
+		rb44 = new JRadioButton("d) It is a ternary Tree");
 		rb44.setBounds(1000, 450, 300, 40);
 		rb44.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -135,23 +135,23 @@ public class BFSQuiz {
 		bg4.add(rb43);
 		bg4.add(rb44);
 
-		q5 = new JLabel("5. Which of the following is not an application of Breadth First Search?");
+		q5 = new JLabel("5. In Depth First Search, how many times a node is visited?");
     	q5.setFont(new Font("Verdana", Font.PLAIN, 18));
         q5.setBounds(100, 500, 900, 40);
 
-        rb51 = new JRadioButton("<html>a) Finding shortest path<br>&nbsp;&nbsp;&nbsp; between two nodes</html>");
+        rb51 = new JRadioButton("a) Once");
 		rb51.setBounds(100, 550, 300, 40);
 		rb51.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb52 = new JRadioButton("<html>b) Finding bipartiteness<br>&nbsp;&nbsp;&nbsp; of a graph</html>");
-		rb52.setBounds(400, 550, 300, 50);
+		rb52 = new JRadioButton("b) Twice");
+		rb52.setBounds(400, 550, 300, 40);
 		rb52.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb53 = new JRadioButton("c) GPS navigation system");
-		rb53.setBounds(700, 550, 300, 40);
+		rb53 = new JRadioButton("<html>c) Equivalent to number of<br>&nbsp;&nbsp;&nbsp; indegree of the node</html>");
+		rb53.setBounds(700, 550, 300, 50);
 		rb53.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb54 = new JRadioButton("d) Path Finding");
+		rb54 = new JRadioButton("d) Thrice");
 		rb54.setBounds(1000, 550, 300, 40);
 		rb54.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -163,19 +163,19 @@ public class BFSQuiz {
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(rb13.isSelected()) {
+                if(rb11.isSelected()) {
                 	score = score + 5;
                 }
                 if(rb21.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb33.isSelected()) {
+                if(rb31.isSelected()) {
                 	score = score + 5;
                 }
                 if(rb42.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb54.isSelected()) {
+                if(rb53.isSelected()) {
                 	score = score + 5;
                 }
                 try {
@@ -187,7 +187,7 @@ public class BFSQuiz {
       				e1.printStackTrace();
     			}
     			f.dispose();
-    			new BFSQuizScore();
+    			new DFSQuizScore();
             }
         });
 
