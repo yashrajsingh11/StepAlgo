@@ -189,7 +189,7 @@ public class QuizMenu {
         b14.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSortQuiz();
+                new KruskalQuiz();
             }
         });
 
