@@ -31,23 +31,23 @@ public class PrimQuiz {
     	b2.setFont(new Font("Verdana", Font.PLAIN, 18));
     	b2.setBounds(315, 620, 250, 40);
 
-    	q1 = new JLabel("1. Breadth First Search is equivalent to which of the traversal in the Binary Trees?");
+    	q1 = new JLabel("1. Prim's algorithm is a ________.");
     	q1.setFont(new Font("Verdana", Font.PLAIN, 18));
         q1.setBounds(100, 100, 900, 40);
 
-        rb11 = new JRadioButton("a) Pre-order Traversal");
-		rb11.setBounds(100, 150, 300, 40);
+        rb11 = new JRadioButton("<html>a) Divide and conquer<br>&nbsp;&nbsp;&nbsp; algorithm</html>");
+		rb11.setBounds(100, 150, 300, 50);
 		rb11.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb12 = new JRadioButton("b) Post-order Traversal");
+		rb12 = new JRadioButton("b) Greedy algorithm");
 		rb12.setBounds(400, 150, 300, 40);
 		rb12.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb13 = new JRadioButton("c) Level-order Traversal");
+		rb13 = new JRadioButton("c) Dynamic Programming");
 		rb13.setBounds(700, 150, 300, 40);
 		rb13.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb14 = new JRadioButton("d) In-order Traversal");
+		rb14 = new JRadioButton("d) Approximation algorithm");
 		rb14.setBounds(1000, 150, 300, 40);
 		rb14.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -57,23 +57,23 @@ public class PrimQuiz {
 		bg1.add(rb13);
 		bg1.add(rb14);
 
-    	q2 = new JLabel("2. Time Complexity of Breadth First Search is? (V: number of vertices, E: number of edges)");
+    	q2 = new JLabel("2. Worst case is the worst case time complexity of Prim's algorithm if adjacency matrix is used?");
     	q2.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q2.setBounds(100, 200, 900, 40);
+        q2.setBounds(100, 200, 1000, 40);
 
-        rb21 = new JRadioButton("a) O(V + E)");
+        rb21 = new JRadioButton("a) O(log V)");
 		rb21.setBounds(100, 250, 300, 40);
 		rb21.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb22 = new JRadioButton("b) O(V)");
+		rb22 = new JRadioButton("b) O(V^2)");
 		rb22.setBounds(400, 250, 300, 40);
 		rb22.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb23 = new JRadioButton("c) O(E)");
+		rb23 = new JRadioButton("c) O(E^2)");
 		rb23.setBounds(700, 250, 300, 40);
 		rb23.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb24 = new JRadioButton("d) O(V*E)");
+		rb24 = new JRadioButton("d) O(V log E)");
 		rb24.setBounds(1000, 250, 300, 40);
 		rb24.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -83,23 +83,23 @@ public class PrimQuiz {
 		bg2.add(rb23);
 		bg2.add(rb24);
 
-		q3 = new JLabel("3. In BFS, how many times a node is visited?");
+		q3 = new JLabel("3. Prim's algorithm can be efficiently implemented using ________ for graphs with greater density.");
     	q3.setFont(new Font("Verdana", Font.PLAIN, 18));
-        q3.setBounds(100, 300, 900, 40);
+        q3.setBounds(100, 300, 1000, 40);
 
-        rb31 = new JRadioButton("a) Once");
+        rb31 = new JRadioButton("a) d-ary heap");
 		rb31.setBounds(100, 350, 300, 40);
 		rb31.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb32 = new JRadioButton("b) Twice");
+		rb32 = new JRadioButton("b) linear search");
 		rb32.setBounds(400, 350, 300, 40);
 		rb32.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb33 = new JRadioButton("<html>c) Equivalent to number of<br>&nbsp;&nbsp;&nbsp; indegree of the node</html>");
+		rb33 = new JRadioButton("c) fibonacci heap");
 		rb33.setBounds(700, 350, 300, 50);
 		rb33.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb34 = new JRadioButton("d) Thrice");
+		rb34 = new JRadioButton("d) binary search");
 		rb34.setBounds(1000, 350, 300, 40);
 		rb34.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -109,23 +109,23 @@ public class PrimQuiz {
 		bg3.add(rb33);
 		bg3.add(rb34);
 
-		q4 = new JLabel("4. The Data structure used in standard implementation of Breadth First Search is?");
+		q4 = new JLabel("4. Prim's algorithm is initialised with a ________.");
     	q4.setFont(new Font("Verdana", Font.PLAIN, 18));
         q4.setBounds(100, 400, 900, 40);
 
-        rb41 = new JRadioButton("a) Stack");
+        rb41 = new JRadioButton("a) vertex");
 		rb41.setBounds(100, 450, 300, 40);
 		rb41.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb42 = new JRadioButton("b) Queue");
+		rb42 = new JRadioButton("b) edge");
 		rb42.setBounds(400, 450, 300, 40);
 		rb42.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb43 = new JRadioButton("c) Linked List");
-		rb43.setBounds(700, 450, 300, 40);
+		rb43 = new JRadioButton("<html>c) vertex which has<br>&nbsp;&nbsp;&nbsp; smallest edge</html>");
+		rb43.setBounds(700, 450, 300, 50);
 		rb43.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb44 = new JRadioButton("d) Tree");
+		rb44 = new JRadioButton("d) forest");
 		rb44.setBounds(1000, 450, 300, 40);
 		rb44.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -135,23 +135,23 @@ public class PrimQuiz {
 		bg4.add(rb43);
 		bg4.add(rb44);
 
-		q5 = new JLabel("5. Which of the following is not an application of Breadth First Search?");
+		q5 = new JLabel("5. Prim's algorithm is also known as ________.");
     	q5.setFont(new Font("Verdana", Font.PLAIN, 18));
         q5.setBounds(100, 500, 900, 40);
 
-        rb51 = new JRadioButton("<html>a) Finding shortest path<br>&nbsp;&nbsp;&nbsp; between two nodes</html>");
-		rb51.setBounds(100, 550, 300, 40);
+        rb51 = new JRadioButton("<html>a) Dijkstra-Scholten<br>&nbsp;&nbsp;&nbsp; algorithm<html>");
+		rb51.setBounds(100, 550, 300, 50);
 		rb51.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb52 = new JRadioButton("<html>b) Finding bipartiteness<br>&nbsp;&nbsp;&nbsp; of a graph</html>");
+		rb52 = new JRadioButton("b) Boruvka's algorithm");
 		rb52.setBounds(400, 550, 300, 50);
 		rb52.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb53 = new JRadioButton("c) GPS navigation system");
+		rb53 = new JRadioButton("c) Floyd-Warshall algorithm");
 		rb53.setBounds(700, 550, 300, 40);
 		rb53.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-		rb54 = new JRadioButton("d) Path Finding");
+		rb54 = new JRadioButton("d) DJP Algorithm");
 		rb54.setBounds(1000, 550, 300, 40);
 		rb54.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -163,21 +163,22 @@ public class PrimQuiz {
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(rb13.isSelected()) {
+                if(rb12.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb21.isSelected()) {
+                if(rb22.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb33.isSelected()) {
+                if(rb31.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb42.isSelected()) {
+                if(rb41.isSelected()) {
                 	score = score + 5;
                 }
                 if(rb54.isSelected()) {
                 	score = score + 5;
                 }
+
                 try {
       				FileWriter myWriter = new FileWriter("score.txt");
       				myWriter.write(Integer.toString(score));
@@ -186,6 +187,7 @@ public class PrimQuiz {
       				System.out.println("An error occurred.");
       				e1.printStackTrace();
     			}
+
     			f.dispose();
     			new PrimQuizScore();
             }

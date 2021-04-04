@@ -885,7 +885,7 @@ public class BFS {
     	}
     }
 
-    public void addEdge(int x,int y) {
+    public void addEdge(int x, int y) {
         adjList[x].add(y);
 
     }
@@ -917,23 +917,22 @@ public class BFS {
 
         visited[s] = 0;
         enqueue(s);
-
-        while (!QueueEmpty()){
+        while (!QueueEmpty()) {
             s = queue[front];
             index[z] = s;
             z = z + 1;
             dequeue();
             visited[s] = 1;
             
-            for (int i = 0; i < adjList[s].size(); i++){
+            for (int i = 0; i < adjList[s].size(); i++) {
                 int x = adjList[s].get(i);
-                if(visited[x] != 1){
+                if(visited[x] != 1) {
                     visited[x] = 0;
                     enqueue(x);
                 }
             }
             
-            for(int i = 0; i < v; i++){
+            for(int i = 0; i < v; i++) {
                 index1[counter] = visited[i];
                 counter = counter + 1;
             }

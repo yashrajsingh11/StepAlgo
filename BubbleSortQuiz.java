@@ -163,13 +163,13 @@ public class BubbleSortQuiz {
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(rb12.isSelected()) {
+                if(rb14.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb24.isSelected()) {
+                if(rb21.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb31.isSelected()) {
+                if(rb33.isSelected()) {
                 	score = score + 5;
                 }
                 if(rb43.isSelected()) {
@@ -178,6 +178,7 @@ public class BubbleSortQuiz {
                 if(rb54.isSelected()) {
                 	score = score + 5;
                 }
+
                 try {
       				FileWriter myWriter = new FileWriter("score.txt");
       				myWriter.write(Integer.toString(score));
@@ -186,6 +187,7 @@ public class BubbleSortQuiz {
       				System.out.println("An error occurred.");
       				e1.printStackTrace();
     			}
+
     			f.dispose();
     			new BubbleSortQuizScore();
             }
@@ -233,6 +235,5 @@ public class BubbleSortQuiz {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

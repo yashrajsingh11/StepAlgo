@@ -104,6 +104,5 @@ public class HeapSortQuizScore {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

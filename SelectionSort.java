@@ -515,7 +515,6 @@ public class SelectionSort {
     }
 
 	public static void swap(int[] array, int i, int j) {
-        
         if(i == j) {
             return;
         }
@@ -523,7 +522,5 @@ public class SelectionSort {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-    
     }
-
 }

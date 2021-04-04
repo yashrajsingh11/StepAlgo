@@ -1,8 +1,9 @@
 public class Kruskal {
 
     void swap(int[]arr, int i, int j) {
-        if(i == j)
+        if(i == j) {
             return;
+        }
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -11,14 +12,16 @@ public class Kruskal {
     int partition(int x[], int y[], int w[], int low, int high) {
         int pivot = w[high];
         int i = low - 1;
-        for(int j = low; j < high; j++){
+
+        for(int j = low; j < high; j++) {
             if(w[j] <= pivot) {
-                i++;
+                i = i + 1;
                 swap(w, i, j);
                 swap(x, i, j);
                 swap(y, i, j);
             }
         }
+
         swap(w, i + 1, high);
         swap(x, i + 1, high);
         swap(y, i + 1, high);
@@ -73,41 +76,40 @@ public class Kruskal {
         int edge[][] = new int[100][100];
         int visited[] = new int[v];
         int k = 0;
+
         for(int i = 0; i < v; i++){
             visited[i] = 0;
         }
 
         int i = 0;
-        while(i < 14){
+        while(i < 14) {
             edge[k][0] = x[i];
             edge[k][1] = y[i];
             edge[k][2] = w[i];
             if(!isCyclic(edge, v, k + 1)){
                 System.out.println("Edge-> " + x[i] + " <--> " + y[i] + " " + " W-> " + w[i]);
-                k++;
+                k = k + 1;
             }
-
-            i++;
-
+            i = i + 1;
         }
-
     }
 
-    public static void main(String[] rgs){
+    public static void main(String[] rgs) {
         int v = 9;
         int e = 14;
         int x[] = new int[e];
         int y[] = new int[e];
         int w[] = new int[e];
-        int[][] edges =  {{0,1,4},{0,7,8},{1,7,11},{1,2,8},{2,3,7},{3,4,9},{2,8,2},{2,5,4},{3,5,14},{4,5,10},{6,8,6},{6,7,1},{7,8,7},{5,6,2}};
-        for (int i = 0; i < e; i++){
+        int[][] edges =  {{0,1,4}, {0,7,8}, {1,7,11}, {1,2,8}, {2,3,7}, {3,4,9}, {2,8,2}, {2,5,4}, {3,5,14}, {4,5,10}, {6,8,6}, {6,7,1}, {7,8,7}, {5,6,2}};
+        
+        for (int i = 0; i < e; i++) {
             x[i] = edges[i][0];
             y[i] = edges[i][1];
             w[i] = edges[i][2];
         }
+
         Kruskal kr = new Kruskal();
         kr.quickSort(x, y, w, 0, e - 1);
-
         kr.kruskalMST(x, y, w, e, v);
     }
 }

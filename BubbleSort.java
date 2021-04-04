@@ -329,7 +329,7 @@ public class BubbleSort {
                     			s[counter] = input[k];
                     			counter = counter + 1;
                     		}
-                    		swap(input, j, j+1);
+                    		swap(input, j, j + 1);
                 		}
             		}
        			}
@@ -489,8 +489,6 @@ public class BubbleSort {
         
         int temp = array[i];
         array[i] = array[j];
-        array[j] = temp;
-    
+        array[j] = temp; 
     }
-
 }

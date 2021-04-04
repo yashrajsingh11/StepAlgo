@@ -9,9 +9,11 @@ public class SelectionSort {
         int n = scanner.nextInt();
         int[] input = new int[n];
         System.out.println("Enter the elements for an array");
+
         for (int i = 0; i < n; i++) {
             input[i] = scanner.nextInt();
         }
+
         scanner.close();
         for(int i = n - 1; i > 0; i--) {
             int largest = 0;
@@ -22,19 +24,18 @@ public class SelectionSort {
             }
             swap(input, largest, i);
         }
+
         for (int i = 0; i < n; i++) {
             System.out.print(input[i] + " ");
         }
-
     }
     public static void swap(int[] array, int i, int j) {
-
-        if(i==j)
+        if(i == j) {
             return;
+        }
+
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-
     }
-
 }

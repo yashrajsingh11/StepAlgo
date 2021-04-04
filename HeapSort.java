@@ -431,7 +431,7 @@ public class HeapSort {
                 input[8] = Integer.parseInt(itf9.getText());
                 input[9] = Integer.parseInt(itf10.getText());
 
-                hsort(input,10);
+                hsort(input, 10);
 
        			for(int k = 0; k < 10; k++) {
        				s[counter] = input[k];
@@ -452,7 +452,6 @@ public class HeapSort {
         		ol8.setText(Integer.toString(s[7]));
         		ol9.setText(Integer.toString(s[8]));
         		ol10.setText(Integer.toString(s[9]));
-
                 aol1.setText(Integer.toString(s[0]));
                 aol2.setText(Integer.toString(s[1]));
                 aol3.setText(Integer.toString(s[2]));
@@ -463,7 +462,6 @@ public class HeapSort {
                 aol8.setText(Integer.toString(s[7]));
                 aol9.setText(Integer.toString(s[8]));
                 aol10.setText(Integer.toString(s[9]));
-
                 check(mainCounter, counter);
                 b5.setEnabled(false);
                 itf1.setEditable(false);
@@ -634,15 +632,17 @@ public class HeapSort {
         array[j] = temp;    
     }
 
-    public void minheapify(int[] arr,int i, int n){
+    public void minheapify(int[] arr,int i, int n) {
         int smallest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
-        if(left < n && arr[left] > arr[smallest])
+        if(left < n && arr[left] > arr[smallest]) {
             smallest = left;
-        if(right < n && arr[right] > arr[smallest])
+        }
+        if(right < n && arr[right] > arr[smallest]) {
             smallest = right;
+        }
         if(smallest != i) {
             for(int k = 0; k < 10; k++) {
                 s[counter] = input[k];
@@ -657,12 +657,12 @@ public class HeapSort {
 
     }
 
-    public void hsort(int[] arr, int n){
+    public void hsort(int[] arr, int n) {
         for(int i = n / 2 - 1; i >= 0; i--) {
             minheapify(arr, i, n);
         }
 
-        for(int i = n - 1; i >= 0; i--){
+        for(int i = n - 1; i >= 0; i--) {
             for(int k = 0; k < 10; k++) {
                 s[counter] = input[k];
                 counter = counter + 1;
@@ -673,7 +673,5 @@ public class HeapSort {
             swap(arr, 0, i);
             minheapify(arr, 0, i);
         }
-    
     }
-
 }

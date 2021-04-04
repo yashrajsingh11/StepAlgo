@@ -1,16 +1,18 @@
 import java.util.Scanner;
 
 public class LinearSearch {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = 10;
         int[] arr = new int[n];
-        for(int i = 0; i < n; i++){
+
+        for(int i = 0; i < n; i++) {
             arr[i] = scan.nextInt();
         }
+        
         int numbr = scan.nextInt();
         int res = search(arr, n, numbr);
-        if(res == -1){
+        if(res == -1) {
             System.out.println("The given number is not present");
         }
         else {
@@ -18,9 +20,9 @@ public class LinearSearch {
         }
     }
 
-    public static int search(int[] arr, int n, int num){
+    public static int search(int[] arr, int n, int num) {
         for (int i = 0; i < n; i++) {
-            if(arr[i] == num){
+            if(arr[i] == num) {
                 return i;
             }
         }

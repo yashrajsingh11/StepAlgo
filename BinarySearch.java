@@ -29,13 +29,13 @@ public class BinarySearch {
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
 
-    	theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
+    	theory = new JLabel("<html>In Binary Search, a sorted array is repeatedly divided and the search interval in halved each time. We begin with an interval covering the whole array.<br>If the value of the search key is less than the item in the middle of the interval, the interval is narrowed to the lower half. Otherwise the interval is narrowed to the upper half.<br>Repeatedly check until the value is found or the interval is empty.</html>");
         theory.setFont(new Font("Verdana", Font.PLAIN, 18));
         theory.setBounds(100, 100, 600, 280);
 
-        code = new JLabel("<html>for (int i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        code = new JLabel("<html>public int search(int[] arr, int beg, int end, int num) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if(beg &#60= end) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int mid = (beg + end) / 2;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(arr[mid] == num)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mid;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(arr[mid] > num)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return search(arr, beg, mid - 1, num);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return search(arr, mid + 1, end, num);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;return -1;<br>}</html>");
         code.setFont(new Font("Verdana", Font.PLAIN, 18));
-        code.setBounds(800, 100, 500, 280);
+        code.setBounds(800, 100, 550, 280);
 
         l1 = new JLabel("Search For : ", JLabel.CENTER);
         l1.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -533,27 +533,28 @@ public class BinarySearch {
     }
 
     public int search(int[] arr, int beg, int end, int num){
-        if(beg<=end){
-            int mid = (beg+end)/2;
+        if(beg <= end){
+            int mid = (beg + end) / 2;
             for(int k = 0; k < 10; k++) {
                 s[counter] = arr[k];
                 counter = counter + 1;
             }
+
             midIndex[z] = mid;
             begIndex[z] = beg;
             endIndex[z] = end;
             z = z + 1;
+            
             if(arr[mid] == num){
                 return mid;
             }
-            if(arr[mid]>num){
-                return search(arr,beg,mid-1,num);
-            }
-            else{
-                return search(arr,mid+1,end,num);
+
+            if(arr[mid] > num){
+                return search(arr, beg, mid - 1, num);
+            } else{
+                return search(arr, mid + 1, end, num);
             }
         }
         return -1;
     }
-
 }

@@ -25,11 +25,11 @@ public class LinearSearch {
 		l.setFont(new Font("Verdana", Font.PLAIN, 36));
     	l.setBounds(490, 50, 400, 60);
 
-    	theory = new JLabel("<html>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, using the logic given on the right.</html>");
+    	theory = new JLabel("<html>In Linear Search we start from the leftmost element of the array and one by one compare the element to be searched with each element of the array.<br> If the elements match then return the index.<br> If they don't match then return -1.</html>");
         theory.setFont(new Font("Verdana", Font.PLAIN, 18));
         theory.setBounds(100, 100, 600, 280);
 
-        code = new JLabel("<html>for (int i = 0; i &#60 n-1; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j &#60; n-i-1; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &#62; arr[j+1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</html>");
+        code = new JLabel("<html>for (int i = 0; i &#60 n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if(arr[i] == toBeSearched){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>return -1;</html>");
         code.setFont(new Font("Verdana", Font.PLAIN, 18));
         code.setBounds(800, 100, 500, 280);
 
@@ -484,7 +484,6 @@ public class LinearSearch {
     	f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 
 	public void check(int mainCounter, int counter) {
@@ -515,10 +514,12 @@ public class LinearSearch {
             	z = z + 1;
                 return i;
             }
+
             for(int k = 0; k < n; k++) {
             	s[counter] = arr[k];
             	counter = counter + 1;
             }
+            
             temp[z] = i;
             z = z + 1;
         }

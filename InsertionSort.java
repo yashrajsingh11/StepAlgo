@@ -361,10 +361,12 @@ public class InsertionSort {
                         z = z + 1;
                         input[j] = input[j - 1];
             		}
+
                     for(int k = 0; k < 10; k++) {
                         s[counter] = input[k];
                         counter = counter + 1;
                     }  
+
                     index1[z] = newElement;
                     index2[z] = i;
                     index3[z] = j;
@@ -531,8 +533,7 @@ public class InsertionSort {
     
     }
 
-	public static void swap(int[] array, int i, int j) {
-        
+	public static void swap(int[] array, int i, int j) { 
         if(i == j) {
             return;
         }
@@ -540,7 +541,5 @@ public class InsertionSort {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-    
     }
-
 }

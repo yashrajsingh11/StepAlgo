@@ -178,6 +178,7 @@ public class HeapSortQuiz {
                 if(rb54.isSelected()) {
                 	score = score + 5;
                 }
+
                 try {
       				FileWriter myWriter = new FileWriter("score.txt");
       				myWriter.write(Integer.toString(score));
@@ -186,6 +187,7 @@ public class HeapSortQuiz {
       				System.out.println("An error occurred.");
       				e1.printStackTrace();
     			}
+
     			f.dispose();
     			new HeapSortQuizScore();
             }
@@ -233,6 +235,5 @@ public class HeapSortQuiz {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

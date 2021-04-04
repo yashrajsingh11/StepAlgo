@@ -9,13 +9,16 @@ public class InsertionSort {
         int n = scanner.nextInt();
         int[] input = new int[n];
         System.out.println("Enter the elements for an array");
+        
         for (int i = 0; i < n; i++) {
             input[i] = scanner.nextInt();
         }
+        
         scanner.close();
         for(int i = 1; i < n; i++) {
             int newElement = input[i];
             int j;
+            
             for(j = i; j > 0 && input[j - 1] > newElement; j--) {
                 input[j] = input[j-1];
             }
@@ -24,7 +27,5 @@ public class InsertionSort {
         for (int i = 0; i < n; i++) {
             System.out.print(input[i] + " ");
         }
-
     }
-
 }

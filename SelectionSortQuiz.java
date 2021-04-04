@@ -163,21 +163,22 @@ public class SelectionSortQuiz {
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(rb12.isSelected()) {
+                if(rb14.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb24.isSelected()) {
+                if(rb21.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb31.isSelected()) {
+                if(rb34.isSelected()) {
                 	score = score + 5;
                 }
                 if(rb43.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb51.isSelected()) {
+                if(rb54.isSelected()) {
                 	score = score + 5;
                 }
+
                 try {
       				FileWriter myWriter = new FileWriter("score.txt");
       				myWriter.write(Integer.toString(score));
@@ -186,6 +187,7 @@ public class SelectionSortQuiz {
       				System.out.println("An error occurred.");
       				e1.printStackTrace();
     			}
+    			
     			f.dispose();
     			new SelectionSortQuizScore();
             }
@@ -233,6 +235,5 @@ public class SelectionSortQuiz {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

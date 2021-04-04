@@ -169,15 +169,16 @@ public class QuickSortQuiz {
                 if(rb24.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb31.isSelected()) {
+                if(rb32.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb43.isSelected()) {
+                if(rb41.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb51.isSelected()) {
+                if(rb52.isSelected()) {
                 	score = score + 5;
                 }
+
                 try {
       				FileWriter myWriter = new FileWriter("score.txt");
       				myWriter.write(Integer.toString(score));
@@ -186,6 +187,7 @@ public class QuickSortQuiz {
       				System.out.println("An error occurred.");
       				e1.printStackTrace();
     			}
+
     			f.dispose();
     			new QuickSortQuizScore();
             }
@@ -233,6 +235,5 @@ public class QuickSortQuiz {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

@@ -178,6 +178,7 @@ public class BinarySearchQuiz {
                 if(rb52.isSelected()) {
                 	score = score + 5;
                 }
+
                 try {
       				FileWriter myWriter = new FileWriter("score.txt");
       				myWriter.write(Integer.toString(score));
@@ -186,6 +187,7 @@ public class BinarySearchQuiz {
       				System.out.println("An error occurred.");
       				e1.printStackTrace();
     			}
+    			
     			f.dispose();
     			new BinarySearchQuizScore();
             }
@@ -233,6 +235,5 @@ public class BinarySearchQuiz {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

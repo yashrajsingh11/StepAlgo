@@ -144,7 +144,7 @@ public class LinearSearchQuiz {
 		rb51.setFont(new Font("Verdana", Font.PLAIN, 18));
 
 		rb52 = new JRadioButton("<html>&nbsp;&nbsp;&nbsp; Greater time complexities<br>b) compared to other<br>&nbsp;&nbsp;&nbsp; searching algorithms");
-		rb52.setBounds(400, 520, 300, 100);
+		rb52.setBounds(400, 540, 300, 80);
 		rb52.setFont(new Font("Verdana", Font.PLAIN, 18));
 
 		rb53 = new JRadioButton("c) Not easy to understand");
@@ -163,21 +163,22 @@ public class LinearSearchQuiz {
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(rb12.isSelected()) {
+                if(rb14.isSelected()) {
                 	score = score + 5;
                 }
                 if(rb24.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb31.isSelected()) {
+                if(rb33.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb43.isSelected()) {
+                if(rb44.isSelected()) {
                 	score = score + 5;
                 }
-                if(rb51.isSelected()) {
+                if(rb52.isSelected()) {
                 	score = score + 5;
                 }
+
                 try {
       				FileWriter myWriter = new FileWriter("score.txt");
       				myWriter.write(Integer.toString(score));
@@ -186,6 +187,7 @@ public class LinearSearchQuiz {
       				System.out.println("An error occurred.");
       				e1.printStackTrace();
     			}
+
     			f.dispose();
     			new LinearSearchQuizScore();
             }
@@ -233,6 +235,5 @@ public class LinearSearchQuiz {
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 }

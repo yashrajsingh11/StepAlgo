@@ -595,10 +595,9 @@ public class QuickSort {
                 s[counter] = input[w];
                 counter = counter + 1;
             }
-            if(input[i] > pivot){
+            if(input[i] > pivot) {
                 i = i + 1;
-            }
-            else{
+            } else {
                 swap(input, i, k);
                 i = i + 1;
                 k = k + 1;
@@ -615,7 +614,6 @@ public class QuickSort {
             counter = counter + 1;
         }
         swap(input, k, j);
-
         return k;
     }
 
@@ -645,8 +643,7 @@ public class QuickSort {
             }
             if(input[i] < pivot){
                 i = i - 1;
-            }
-            else{
+            } else{
                 swap(input,i,k);
                 i = i - 1;
                 k = k - 1;
@@ -663,7 +660,6 @@ public class QuickSort {
             counter = counter + 1;
         }
         swap(input,k,j);
-
         return k;
     }
 
@@ -674,5 +670,4 @@ public class QuickSort {
             quickSortBeg(input, pivotIndex + 1, end);
         }
     }
-
 }

@@ -480,37 +480,41 @@ public class MergeSort {
         int n2 = end - mid;
         int[] temp1 = new int[n1];
         int[] temp2 = new int[n2];
+
         for(int i = 0; i < n1; i++) {
             temp1[i] = input[beg + i];
         }
+
         for(int j = 0; j < n2; j++) {
             temp2[j] = input[1 + mid + j];
         }
+
         int i = 0;
         int j = 0;
         int k = beg;
+
         while(i < n1 && j < n2) {
             if(temp1[i] <= temp2[j]) {
                 input[k] = temp1[i];
                 i = i + 1;
-            }
-            else {
+            } else {
                 input[k] = temp2[j];
                 j = j + 1;
             }
             k = k + 1;
         }
+
         while(i < n1) {
             input[k] = temp1[i];
             i = i + 1;
             k = k + 1;
         }
+
         while(j < n2) {
             input[k] = temp2[j];
             j = j + 1;
             k = k + 1;
         }
-
     }
 
     public void mergeSort (int[] input, int beg, int end) {
@@ -518,6 +522,7 @@ public class MergeSort {
             int mid = (beg + end) / 2;
             mergeSort(input, beg, mid);
             mergeSort(input, mid + 1, end);
+
             for(int k = 0; k < 10; k++) {
                 if(k >= beg && k <= end) {
                     abc[ekAurCounter] = 1;
@@ -527,6 +532,7 @@ public class MergeSort {
                     ekAurCounter = ekAurCounter + 1;
                 }
             }
+
             for(int k = 0; k < 10; k++) {
                 s[counter] = input[k];
                 counter = counter + 1;
@@ -534,5 +540,4 @@ public class MergeSort {
             merge(input, beg, mid, end);
         }
     }
-
 }

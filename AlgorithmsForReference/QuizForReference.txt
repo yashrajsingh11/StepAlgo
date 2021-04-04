@@ -419,3 +419,89 @@ c) Equivalent to number of indegree of the node
 d) Thrice
 
 c	
+
+                                   ----*Prim*---- 
+
+1. Prim’s algorithm is a __
+a) Divide and conquer algorithm
+b) Greedy algorithm
+c) Dynamic Programming
+d) Approximation algorithm
+
+b
+
+2. Worst case is the worst case time complexity of Prim’s algorithm if adjacency matrix is used?
+a) O(log V)
+b) O(V2)
+c) O(E2)
+d) O(V log E)
+
+b
+
+3. Prim’s algorithm can be efficiently implemented using _ for graphs with greater density.
+a) d-ary heap
+b) linear search
+c) fibonacci heap
+d) binary search
+
+a
+
+4. Prims algorithm is initialised with a ________.
+a) vertex
+b) edge
+c) vertex which has smallest edge
+d) forest
+
+a
+
+5. Prim’s algorithm is also known as __
+a) Dijkstra–Scholten algorithm
+b) Borůvka’s algorithm
+c) Floyd–Warshall algorithm
+d) DJP Algorithm
+
+d
+
+                                     ----*Kruskal*----
+
+1. Kruskal’s algorithm is a __
+a) divide and conquer algorithm
+b) dynamic programming algorithm
+c) greedy algorithm
+d) approximation algorithm
+
+c
+
+2. What is the time complexity of Kruskal’s algorithm?
+a) O(log V)
+b) O(E log V)
+c) O(E2)
+d) O(V log E)
+
+b
+
+3. S1. Kruskal’s algorithm might produce a non-minimal spanning tree.
+S2. Kruskal’s algorithm can efficiently implemented using the disjoint-set data structure.
+a) S1 is true but S2 is false
+b) Both S1 and S2 are false
+c) Both S1 and S2 are true
+d) S2 is true but S1 is false
+
+d
+
+4. Kruskal’s algorithm is used to __
+a) find minimum spanning tree
+b) find single source shortest path
+c) find all pair shortest path algorithm
+d) traverse the graph
+
+a
+
+5. Which of the following is false about the Kruskal’s algorithm?
+a) It is a greedy algorithm
+b) It constructs MST by selecting edges in increasing order of their weights
+c) It can accept cycles in the MST
+d) It uses union-find data structure
+
+c
+                                      ----*End*----

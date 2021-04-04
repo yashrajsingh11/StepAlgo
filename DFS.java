@@ -883,23 +883,23 @@ public class DFS {
     	}
     }
 
-    public void addEdge(int x,int y) {
+    public void addEdge(int x, int y) {
         adjList[x].add(y);
     }
 
-    void DFSutil(int s, int visited[]){
+    void DFSutil(int s, int visited[]) {
         visited[s] = 1;
         index[z] = s;
         z = z + 1;
 
-        for (int i = 0; i < v; i++){
+        for (int i = 0; i < v; i++) {
             index1[counter] = visited[i];
             counter = counter + 1;
         }
         
-        if(adjList[s].size() == 0){
+        if(adjList[s].size() == 0) {
             visited[s] = -1;
-            for (int i = 0; i < v; i++){
+            for (int i = 0; i < v; i++) {
             	index1[counter] = visited[i];
             	counter = counter + 1;
         	}
@@ -915,8 +915,7 @@ public class DFS {
                 if (visited[x] == 0) {
                     DFSutil(x, visited);
                 }
-            }
-            else{
+            } else{
                 index[z] = s;
                 z = z + 1;
                 visited[s] = -1;
@@ -928,15 +927,14 @@ public class DFS {
         }
     }
 
-    void myDFS(int v,int s){
+    void myDFS(int v,int s) {
         int[] visited = new int[v];
 
         for (int i = 0; i < v; i++){
             visited[i] = 0;
         }
 
-        DFSutil(s, visited);
-        
+        DFSutil(s, visited);      
         for (int i = 0; i < v; i++){
             if(visited[i] == 0){
                 visited[i] = -1;

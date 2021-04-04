@@ -1034,7 +1034,6 @@ public class Prim {
     	f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
-
 	}
 
     public void check(int mainCounter, int counter) {
@@ -1207,36 +1206,31 @@ public class Prim {
     }
 
     void primMST(int arr[][], int v, int s) {
-
         int parent[] = new int[v];
         int key[] = new int[v];
         boolean visited[] = new boolean[v];
         int[] src = new int[v];
         int[] dest = new int[v];
 
-
         for(int i = 0; i < v; i++) {
             key[i] = 1000000;
             visited[i] = false;
             parent[i] = -1;
         }
+
         key[s] = 0;
-
         for(int i = 0; i < v; i++) {
-
             int in = minKey(key, visited, v);
             visited[in] = true;
-
-
             for(int j = 0; j < v; j++) {
                 if(arr[in][j] != 0 && !visited[j] && arr[in][j] < key[j]) {
                     parent[j] = in;
                     key[j] = arr[in][j];
                 }
             }
+
             dest[i] = in;
-            src[i] = parent[in];
-            
+            src[i] = parent[in];          
         }
 
         for(int i = 1; i < v; i++) {
