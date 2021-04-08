@@ -6,7 +6,7 @@ public class MainMenu {
 	
 	JFrame f;
 	JLabel l, l1, l2, l3;
-	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19;
 	
 	public MainMenu() {
 	
@@ -67,6 +67,14 @@ public class MainMenu {
         b10 = new JButton("Binary Search");  
         b10.setFont(new Font("Verdana", Font.PLAIN, 18));
         b10.setBounds(575, 250, 200, 40);
+
+        b18 = new JButton("Jump Search");  
+        b18.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b18.setBounds(575, 300, 200, 40);
+
+        b19 = new JButton("Interpolation Search");  
+        b19.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b19.setBounds(575, 350, 200, 40);
 
         b11 = new JButton("BFS");  
         b11.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -196,14 +204,14 @@ public class MainMenu {
         b15.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSort();
+                new Dijkstra();
             }
         });
 
         b16.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSort();
+                new BellmanFord();
             }
         });
 
@@ -211,6 +219,20 @@ public class MainMenu {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
                 new BubbleSort();
+            }
+        });
+
+        b18.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new JumpSearch();
+            }
+        });
+
+        b19.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new InterpolationSearch();
             }
         });
 
@@ -236,6 +258,8 @@ public class MainMenu {
         f.add(b15);
         f.add(b16);
         f.add(b17);
+        f.add(b18);
+        f.add(b19);
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
