@@ -15,15 +15,16 @@ public class Dijkstra {
     JButton b1, b2, b3, b4, b5, b6, b7;
     JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10, itf11, itf12, itf13, itf14, itf15, itf16, itf17, itf18, itf19, itf20, itf21, itf22, itf23, itf24, itf25, itf26, itf27, itf28, itf29, itf30, starting, vertexNum;  
     JLabel ol1, ol2, ol3, ol4, ol5, ol6, ol0110, ol0220, ol0330, ol0440, ol0550, ol1221, ol1331, ol1441, ol1551, ol2332, ol2442, ol2552, ol3443, ol3553, ol4554;
-    JLabel l, l1, l2, l3, l4, prompt;
+    JLabel l, l1, l2, l3, l4, prompt1, prompt2, prompt3, prompt4, prompt5, prompt6;
 
     int[][] input = new int[10][10];
     int[][] arr = new int[6][6];
+    int[] mainArr = new int[600];
     int v, startingVertex;
     int[] index2 = new int[60];
     int[] index1 = new int[60];
     int[] index = new int[60];
-    int counter = 0, mainCounter = 0;
+    int counter = 0, mainCounter = 0, z = 0, ekAurCounter = 0;
 
     public Dijkstra() {
         
@@ -57,9 +58,29 @@ public class Dijkstra {
         vertexNum.setBounds(425, 200, 50, 30);
         vertexNum.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-        prompt = new JLabel();
-        prompt.setFont(new Font("Verdana", Font.PLAIN, 18));  
-        prompt.setBounds(325, 400, 275, 100);
+        prompt1 = new JLabel();
+        prompt1.setFont(new Font("Verdana", Font.PLAIN, 18));  
+        prompt1.setBounds(650, 300, 50, 30);
+
+        prompt2 = new JLabel();
+        prompt2.setFont(new Font("Verdana", Font.PLAIN, 18));  
+        prompt2.setBounds(880, 130, 50, 30);
+
+        prompt3 = new JLabel();
+        prompt3.setFont(new Font("Verdana", Font.PLAIN, 18));  
+        prompt3.setBounds(880, 480, 50, 30);
+
+        prompt4 = new JLabel();
+        prompt4.setFont(new Font("Verdana", Font.PLAIN, 18));  
+        prompt4.setBounds(1120, 130, 50, 30);
+
+        prompt5 = new JLabel();
+        prompt5.setFont(new Font("Verdana", Font.PLAIN, 18));  
+        prompt5.setBounds(1120, 480, 50, 30);
+
+        prompt6 = new JLabel();
+        prompt6.setFont(new Font("Verdana", Font.PLAIN, 18));  
+        prompt6.setBounds(1315, 300, 50, 30);
 
         try {
             
@@ -384,6 +405,7 @@ public class Dijkstra {
             public void actionPerformed(ActionEvent e) {
                 
                 mainCounter = mainCounter - 1;
+                ekAurCounter = ekAurCounter - 6;
 
                 if(index1[mainCounter] == 0 && index[mainCounter] == 1) {
                     ol1.setForeground(Color.red);
@@ -535,6 +557,14 @@ public class Dijkstra {
                     ol5.setForeground(Color.red);
                     ol4554.setForeground(Color.red);
                 }
+
+                prompt1.setText(Integer.toString(mainArr[ekAurCounter]));
+                prompt2.setText(Integer.toString(mainArr[ekAurCounter + 1]));
+                prompt3.setText(Integer.toString(mainArr[ekAurCounter + 2]));
+                prompt4.setText(Integer.toString(mainArr[ekAurCounter + 3]));
+                prompt5.setText(Integer.toString(mainArr[ekAurCounter + 4]));
+                prompt6.setText(Integer.toString(mainArr[ekAurCounter + 5]));
+
 
                 check(mainCounter, counter);
             
@@ -695,7 +725,15 @@ public class Dijkstra {
                     ol4554.setForeground(Color.green);
                 }
 
+                prompt1.setText(Integer.toString(mainArr[ekAurCounter]));
+                prompt2.setText(Integer.toString(mainArr[ekAurCounter + 1]));
+                prompt3.setText(Integer.toString(mainArr[ekAurCounter + 2]));
+                prompt4.setText(Integer.toString(mainArr[ekAurCounter + 3]));
+                prompt5.setText(Integer.toString(mainArr[ekAurCounter + 4]));
+                prompt6.setText(Integer.toString(mainArr[ekAurCounter + 5]));
+
                 mainCounter = mainCounter + 1;
+                ekAurCounter = ekAurCounter + v;
                 check(mainCounter, counter);
             
             }
@@ -755,7 +793,7 @@ public class Dijkstra {
                 if(countDistinct() > 6) {
                     b5.setEnabled(false);
                     b6.setEnabled(true);
-                    prompt.setText("<html>Number of Edges<br> must be less than 6</html>");
+                    prompt1.setText("<html>Number of Edges<br> must be less than 6</html>");
                 } else {
 
                     showLines();
@@ -764,7 +802,26 @@ public class Dijkstra {
                         arr[input[i][0]][input[i][1]] = input[i][2];
                         arr[input[i][1]][input[i][0]] = input[i][2];
                     }
+
+                    for(int l = 0; l < v; l++) {
+                        if(l == startingVertex) {
+                            mainArr[z] = 0;
+                            z = z + 1;
+                        } else {
+                            mainArr[z] = 10000;
+                            z = z + 1;
+                        }
+                    }
+
                     myDjikstra(arr, v, startingVertex);
+
+                    prompt1.setText(Integer.toString(mainArr[ekAurCounter]));
+                    prompt2.setText(Integer.toString(mainArr[ekAurCounter + 1]));
+                    prompt3.setText(Integer.toString(mainArr[ekAurCounter + 2]));
+                    prompt4.setText(Integer.toString(mainArr[ekAurCounter + 3]));
+                    prompt5.setText(Integer.toString(mainArr[ekAurCounter + 4]));
+                    prompt6.setText(Integer.toString(mainArr[ekAurCounter + 5]));
+                    ekAurCounter = ekAurCounter + v;
 
                     check(mainCounter, counter);
                     ol1.setText("0");
@@ -867,7 +924,12 @@ public class Dijkstra {
                 ol3443.setText("");
                 ol3553.setText("");
                 ol4554.setText("");
-                prompt.setText("");
+                prompt1.setText("");
+                prompt2.setText("");
+                prompt3.setText("");
+                prompt4.setText("");
+                prompt5.setText("");
+                prompt6.setText("");
                 ol1.setForeground(Color.black);
                 ol2.setForeground(Color.black);
                 ol3.setForeground(Color.black);
@@ -891,6 +953,8 @@ public class Dijkstra {
                 ol4554.setForeground(Color.black);
                 mainCounter = 0;
                 counter = 0;
+                z = 0;
+                ekAurCounter = 0;
                 check(mainCounter, counter);
                 b5.setEnabled(true);
                 b6.setEnabled(false);
@@ -956,7 +1020,12 @@ public class Dijkstra {
         f.add(l2);
         f.add(l3);
         f.add(l4);
-        f.add(prompt);
+        f.add(prompt1);
+        f.add(prompt2);
+        f.add(prompt3);
+        f.add(prompt4);
+        f.add(prompt5);
+        f.add(prompt6);
         f.add(l0110);
         f.add(l0220);
         f.add(l0330);
@@ -1213,7 +1282,7 @@ public class Dijkstra {
         int[] dest = new int[v];
 
         for(int i = 0; i < v; i++) {
-            key[i] = 1000000;
+            key[i] = 10000;
             visited[i] = false;
             parent[i] = -1;
         }
@@ -1223,10 +1292,14 @@ public class Dijkstra {
             int in = minKey(key,visited,v);
             visited[in] = true;
             for(int j = 0; j < v; j++) {
-                if(arr[in][j] != 0 && !visited[j] && key[in] != 1000000 && arr[in][j] + key[in] < key[j]) {
+                if(arr[in][j] != 0 && !visited[j] && key[in] != 10000 && arr[in][j] + key[in] < key[j]) {
                     parent[j] = in;
                     key[j] = key[in] + arr[in][j];
-                }
+                }   
+            }
+            for(int l = 0; l < v; l++) {
+                mainArr[z] = key[l];
+                z = z + 1;
             }
             dest[i] = in;
             src[i] = parent[in];
@@ -1234,9 +1307,11 @@ public class Dijkstra {
 
         int dist = 0;
         for(int i = 1; i < v; i++) {
-            System.out.println(src[i] + "," + dest[i] + " W- " + key[dest[i]]);
+            index[counter] = src[i];
+            index1[counter] = dest[i];
+            index2[counter] = key[dest[i]];
+            counter = counter + 1;
         }
-        System.out.println();
     }
 
 }
