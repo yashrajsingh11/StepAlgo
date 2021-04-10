@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 public class BFS {
 
 	JFrame f;
-	JLabel l01, l02, l03, l04, l05, l10, l12, l13, l14, l15, l20, l21, l23, l24, l25, l30, l31, l32, l34, l35, l40, l41, l42, l43, l45, l50, l51, l52, l53, l54 ;
+	JLabel l01, l02, l03, l04, l05, l10, l12, l13, l14, l15, l20, l21, l23, l24, l25, l30, l31, l32, l34, l35, l40, l41, l42, l43, l45, l50, l51, l52, l53, l54;
 	JButton b1, b2, b3, b4, b5, b6, b7;
 	JTextField itf1, itf2, itf3, itf4, itf5, itf6, itf7, itf8, itf9, itf10, itf11, itf12, itf13, itf14, itf15, itf16, itf17, itf18, itf19, itf20, starting, vertexNum;  
 	JLabel ol1, ol2, ol3, ol4, ol5, ol6;

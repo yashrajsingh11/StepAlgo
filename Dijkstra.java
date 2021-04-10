@@ -42,7 +42,7 @@ public class Dijkstra {
         l2.setFont(new Font("Verdana", Font.PLAIN, 18));  
         l2.setBounds(325, 250, 275, 30);
 
-        starting = new JTextField("2");  
+        starting = new JTextField("0");  
         starting.setBounds(425, 300, 50, 30);
         starting.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -60,27 +60,27 @@ public class Dijkstra {
 
         prompt1 = new JLabel();
         prompt1.setFont(new Font("Verdana", Font.PLAIN, 18));  
-        prompt1.setBounds(650, 300, 50, 30);
+        prompt1.setBounds(640, 330, 80, 30);
 
         prompt2 = new JLabel();
         prompt2.setFont(new Font("Verdana", Font.PLAIN, 18));  
-        prompt2.setBounds(880, 130, 50, 30);
+        prompt2.setBounds(840, 120, 80, 30);
 
         prompt3 = new JLabel();
         prompt3.setFont(new Font("Verdana", Font.PLAIN, 18));  
-        prompt3.setBounds(880, 480, 50, 30);
+        prompt3.setBounds(880, 480, 80, 30);
 
         prompt4 = new JLabel();
         prompt4.setFont(new Font("Verdana", Font.PLAIN, 18));  
-        prompt4.setBounds(1120, 130, 50, 30);
+        prompt4.setBounds(1120, 130, 80, 30);
 
         prompt5 = new JLabel();
         prompt5.setFont(new Font("Verdana", Font.PLAIN, 18));  
-        prompt5.setBounds(1120, 480, 50, 30);
+        prompt5.setBounds(1080, 480, 80, 30);
 
         prompt6 = new JLabel();
         prompt6.setFont(new Font("Verdana", Font.PLAIN, 18));  
-        prompt6.setBounds(1315, 300, 50, 30);
+        prompt6.setBounds(1290, 330, 80, 30);
 
         try {
             
@@ -558,12 +558,12 @@ public class Dijkstra {
                     ol4554.setForeground(Color.red);
                 }
 
-                prompt1.setText(Integer.toString(mainArr[ekAurCounter]));
-                prompt2.setText(Integer.toString(mainArr[ekAurCounter + 1]));
-                prompt3.setText(Integer.toString(mainArr[ekAurCounter + 2]));
-                prompt4.setText(Integer.toString(mainArr[ekAurCounter + 3]));
-                prompt5.setText(Integer.toString(mainArr[ekAurCounter + 4]));
-                prompt6.setText(Integer.toString(mainArr[ekAurCounter + 5]));
+                prompt1.setText("SD: " + Integer.toString(mainArr[ekAurCounter]));
+                prompt2.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 1]));
+                prompt3.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 2]));
+                prompt4.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 3]));
+                prompt5.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 4]));
+                prompt6.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 5]));
 
 
                 check(mainCounter, counter);
@@ -725,12 +725,12 @@ public class Dijkstra {
                     ol4554.setForeground(Color.green);
                 }
 
-                prompt1.setText(Integer.toString(mainArr[ekAurCounter]));
-                prompt2.setText(Integer.toString(mainArr[ekAurCounter + 1]));
-                prompt3.setText(Integer.toString(mainArr[ekAurCounter + 2]));
-                prompt4.setText(Integer.toString(mainArr[ekAurCounter + 3]));
-                prompt5.setText(Integer.toString(mainArr[ekAurCounter + 4]));
-                prompt6.setText(Integer.toString(mainArr[ekAurCounter + 5]));
+                prompt1.setText("SD: " + Integer.toString(mainArr[ekAurCounter]));
+                prompt2.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 1]));
+                prompt3.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 2]));
+                prompt4.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 3]));
+                prompt5.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 4]));
+                prompt6.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 5]));
 
                 mainCounter = mainCounter + 1;
                 ekAurCounter = ekAurCounter + v;
@@ -742,7 +742,7 @@ public class Dijkstra {
         b3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new PrimQuiz();
+                new DijkstraQuiz();
             }
         });
 
@@ -803,25 +803,22 @@ public class Dijkstra {
                         arr[input[i][1]][input[i][0]] = input[i][2];
                     }
 
-                    for(int l = 0; l < v; l++) {
-                        if(l == startingVertex) {
+                    for(int i = 0; i < v; i++) {
+                        if(i == startingVertex) {
                             mainArr[z] = 0;
                             z = z + 1;
                         } else {
-                            mainArr[z] = 10000;
+                            mainArr[z] = 100;
                             z = z + 1;
                         }
                     }
 
-                    myDjikstra(arr, v, startingVertex);
+                    index[counter] = -1;
+                    index1[counter] = -1;
+                    index2[counter] = -1;
+                    counter = counter + 1;
 
-                    prompt1.setText(Integer.toString(mainArr[ekAurCounter]));
-                    prompt2.setText(Integer.toString(mainArr[ekAurCounter + 1]));
-                    prompt3.setText(Integer.toString(mainArr[ekAurCounter + 2]));
-                    prompt4.setText(Integer.toString(mainArr[ekAurCounter + 3]));
-                    prompt5.setText(Integer.toString(mainArr[ekAurCounter + 4]));
-                    prompt6.setText(Integer.toString(mainArr[ekAurCounter + 5]));
-                    ekAurCounter = ekAurCounter + v;
+                    myDjikstra(arr, v, startingVertex);
 
                     check(mainCounter, counter);
                     ol1.setText("0");
@@ -901,7 +898,7 @@ public class Dijkstra {
                 itf28.setText("4");
                 itf29.setText("8");
                 itf30.setText("0");
-                starting.setText("2");
+                starting.setText("0");
                 vertexNum.setText("6");
                 ol1.setText("");
                 ol2.setText("");
@@ -1282,7 +1279,7 @@ public class Dijkstra {
         int[] dest = new int[v];
 
         for(int i = 0; i < v; i++) {
-            key[i] = 10000;
+            key[i] = 100;
             visited[i] = false;
             parent[i] = -1;
         }
@@ -1292,7 +1289,7 @@ public class Dijkstra {
             int in = minKey(key,visited,v);
             visited[in] = true;
             for(int j = 0; j < v; j++) {
-                if(arr[in][j] != 0 && !visited[j] && key[in] != 10000 && arr[in][j] + key[in] < key[j]) {
+                if(arr[in][j] != 0 && !visited[j] && key[in] != 100 && arr[in][j] + key[in] < key[j]) {
                     parent[j] = in;
                     key[j] = key[in] + arr[in][j];
                 }   

@@ -8,7 +8,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
-public class BellmanFord {
+public class FloydWarshall {
 
     JFrame f;
     JLabel l01, l02, l03, l04, l05, l10, l12, l13, l14, l15, l20, l21, l23, l24, l25, l30, l31, l32, l34, l35, l40, l41, l42, l43, l45, l50, l51, l52, l53, l54;
@@ -26,11 +26,11 @@ public class BellmanFord {
     int[] index = new int[60];
     int counter = 0, mainCounter = 0, z = 0, ekAurCounter = 0;
 
-    public BellmanFord() {
+    public FloydWarshall() {
         
-        f = new JFrame("Bellman-Ford's Algorithm");
+        f = new JFrame("Floyd-Warshall's Algorithm");
 
-        l = new JLabel("Bellman-Ford's Algorithm", JLabel.CENTER);
+        l = new JLabel("Floyd-Warshall's Algorithm", JLabel.CENTER);
         l.setFont(new Font("Verdana", Font.PLAIN, 36));
         l.setBounds(390, 50, 600, 60);
 
@@ -117,123 +117,123 @@ public class BellmanFord {
 
             l01 = new JLabel(new ImageIcon(img01));
             l01.setBounds(700, 150, 200, 300);
-            // l01.setVisible(false);
+            l01.setVisible(false);
 
             l02 = new JLabel(new ImageIcon(img02));
             l02.setBounds(700, 300, 200, 300);
-            // l02.setVisible(false);
+            l02.setVisible(false);
 
             l03 = new JLabel(new ImageIcon(img03));
             l03.setBounds(750, 140, 600, 300);
-            // l03.setVisible(false);
+            l03.setVisible(false);
 
             l04 = new JLabel(new ImageIcon(img04));
             l04.setBounds(750, 182, 600, 300);
-            // l04.setVisible(false);
+            l04.setVisible(false);
 
             l05 = new JLabel(new ImageIcon(img05));
             l05.setBounds(730, 175, 600, 300);
-            // l05.setVisible(false);
+            l05.setVisible(false);
 
             l10 = new JLabel(new ImageIcon(img10));
             l10.setBounds(690, 140, 200, 300);
-            // l10.setVisible(false);
+            l10.setVisible(false);
 
             l12 = new JLabel(new ImageIcon(img12));
             l12.setBounds(785, 155, 200, 300);
-            // l12.setVisible(false);
+            l12.setVisible(false);
 
             l13 = new JLabel(new ImageIcon(img13));
             l13.setBounds(900, 10, 200, 300);
-            // l13.setVisible(false);
+            l13.setVisible(false);
 
             l14 = new JLabel(new ImageIcon(img14));
             l14.setBounds(910, 150, 200, 300);
-            // l14.setVisible(false);
+            l14.setVisible(false);
 
             l15 = new JLabel(new ImageIcon(img15));
             l15.setBounds(930, 25, 600, 300);
-            // l15.setVisible(false);
+            l15.setVisible(false);
 
             l20 = new JLabel(new ImageIcon(img20));
             l20.setBounds(695, 325, 200, 300);
-            // l20.setVisible(false);
+            l20.setVisible(false);
 
             l21 = new JLabel(new ImageIcon(img21));
             l21.setBounds(805, 155, 200, 300);
-            // l21.setVisible(false);
+            l21.setVisible(false);
 
             l23 = new JLabel(new ImageIcon(img23));
             l23.setBounds(905, 150, 200, 300);
-            // l23.setVisible(false);
+            l23.setVisible(false);
 
             l24 = new JLabel(new ImageIcon(img24));
             l24.setBounds(900, 325, 200, 300);
-            // l24.setVisible(false);
+            l24.setVisible(false);
 
             l25 = new JLabel(new ImageIcon(img25));
             l25.setBounds(950, 305, 600, 300);
-            // l25.setVisible(false);
+            l25.setVisible(false);
 
             l30 = new JLabel(new ImageIcon(img30));
             l30.setBounds(500, 160, 600, 300);
-            // l30.setVisible(false);
+            l30.setVisible(false);
 
             l31 = new JLabel(new ImageIcon(img31));
             l31.setBounds(900, 30, 200, 300);
-            // l31.setVisible(false);
+            l31.setVisible(false);
 
             l32 = new JLabel(new ImageIcon(img32));
             l32.setBounds(920, 160, 200, 300);
-            // l32.setVisible(false);
+            l32.setVisible(false);
 
             l34 = new JLabel(new ImageIcon(img34));
             l34.setBounds(1000, 155, 200, 300);
-            // l34.setVisible(false);
+            l34.setVisible(false);
 
             l35 = new JLabel(new ImageIcon(img35));
             l35.setBounds(1120, 150, 200, 300);
-            // l35.setVisible(false);
+            l35.setVisible(false);
 
             l40 = new JLabel(new ImageIcon(img40));
             l40.setBounds(500, 170, 600, 300);
-            // l40.setVisible(false);
+            l40.setVisible(false);
 
             l41 = new JLabel(new ImageIcon(img41));
             l41.setBounds(895, 160, 200, 300);
-            // l41.setVisible(false);
+            l41.setVisible(false);
 
             l42 = new JLabel(new ImageIcon(img42));
             l42.setBounds(900, 345, 200, 300);
-            // l42.setVisible(false);
+            l42.setVisible(false);
 
             l43 = new JLabel(new ImageIcon(img43));
             l43.setBounds(1020, 155, 200, 300);
-            // l43.setVisible(false);
+            l43.setVisible(false);
 
             l45 = new JLabel(new ImageIcon(img45));
             l45.setBounds(1110, 300, 200, 300);
-            // l45.setVisible(false);
+            l45.setVisible(false);
 
             l50 = new JLabel(new ImageIcon(img50));
             l50.setBounds(730, 190, 600, 300);
-            // l50.setVisible(false);
+            l50.setVisible(false);
 
             l51 = new JLabel(new ImageIcon(img51));
             l51.setBounds(710, 15, 600, 300);
-            // l51.setVisible(false);
+            l51.setVisible(false);
 
             l52 = new JLabel(new ImageIcon(img52));
             l52.setBounds(650, 310, 600, 300);
-            // l52.setVisible(false);
+            l52.setVisible(false);
 
             l53 = new JLabel(new ImageIcon(img53));
             l53.setBounds(1125, 125, 200, 300);
-            // l53.setVisible(false);
+            l53.setVisible(false);
 
             l54 = new JLabel(new ImageIcon(img54));
             l54.setBounds(1100, 290, 200, 300);
-            // l54.setVisible(false);
+            l54.setVisible(false);
 
         } catch(IOException ex) {
             System.out.println("An error occurred.");
@@ -384,123 +384,123 @@ public class BellmanFord {
         ol6.setFont(new Font("Verdana", Font.PLAIN, 18));  
         ol6.setBounds(1305, 300, 50, 30);
 
-        ol01 = new JLabel("01");
+        ol01 = new JLabel();
         ol01.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol01.setBounds(765, 215, 50, 30);
 
-        ol10 = new JLabel("10");
+        ol10 = new JLabel();
         ol10.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol10.setBounds(785, 195, 50, 30);
 
-        ol02 = new JLabel("02");
+        ol02 = new JLabel();
         ol02.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol02.setBounds(780, 375, 50, 30);
 
-        ol20 = new JLabel("20");
+        ol20 = new JLabel();
         ol20.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol20.setBounds(755, 385, 50, 30);
 
-        ol03 = new JLabel("03");
+        ol03 = new JLabel();
         ol03.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol03.setBounds(855, 215, 50, 30);
 
-        ol30 = new JLabel("30");
+        ol30 = new JLabel();
         ol30.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol30.setBounds(850, 245, 50, 30);
 
-        ol04 = new JLabel("04");
+        ol04 = new JLabel();
         ol04.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol04.setBounds(970, 395, 50, 30);
 
-        ol40 = new JLabel("40");
+        ol40 = new JLabel();
         ol40.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol40.setBounds(920, 375, 50, 30);
 
-        ol05 = new JLabel("05");
+        ol05 = new JLabel();
         ol05.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol05.setBounds(920, 280, 50, 30);
 
-        ol50 = new JLabel("50");
+        ol50 = new JLabel();
         ol50.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol50.setBounds(930, 320, 50, 30);
 
-        ol12 = new JLabel("12");
+        ol12 = new JLabel();
         ol12.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol12.setBounds(865, 270, 50, 30);
 
-        ol21 = new JLabel("21");
+        ol21 = new JLabel();
         ol21.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol21.setBounds(865, 340, 50, 30);
 
-        ol13 = new JLabel("13");
+        ol13 = new JLabel();
         ol13.setFont(new Font("Verdana", Font.PLAIN, 18));        
         ol13.setBounds(980, 110, 50, 30);
 
-        ol31 = new JLabel("31");
+        ol31 = new JLabel();
         ol31.setFont(new Font("Verdana", Font.PLAIN, 18));        
         ol31.setBounds(1000, 140, 50, 30);
 
-        ol14 = new JLabel("14");
+        ol14 = new JLabel();
         ol14.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol14.setBounds(1050, 340, 50, 30);
 
-        ol41 = new JLabel("41");
+        ol41 = new JLabel();
         ol41.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol41.setBounds(1000, 350, 50, 30);
 
-        ol15 = new JLabel("15");
+        ol15 = new JLabel();
         ol15.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol15.setBounds(1150, 250, 50, 30);
 
-        ol51 = new JLabel("51");
+        ol51 = new JLabel();
         ol51.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol51.setBounds(1180, 240, 50, 30);
 
-        ol23 = new JLabel("23");
+        ol23 = new JLabel();
         ol23.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol23.setBounds(1000, 240, 50, 30);
 
-        ol32 = new JLabel("32");
+        ol32 = new JLabel();
         ol32.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol32.setBounds(1040, 260, 50, 30);
 
-        ol24 = new JLabel("24");
+        ol24 = new JLabel();
         ol24.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol24.setBounds(970, 455, 50, 30);
 
-        ol42 = new JLabel("42");
+        ol42 = new JLabel();
         ol42.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol42.setBounds(990, 480, 50, 30);
 
-        ol25 = new JLabel("25");
+        ol25 = new JLabel();
         ol25.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol25.setBounds(1135, 380, 50, 30);
 
-        ol52 = new JLabel("52");
+        ol52 = new JLabel();
         ol52.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol52.setBounds(1135, 330, 50, 30);
 
-        ol34 = new JLabel("34");
+        ol34 = new JLabel();
         ol34.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol34.setBounds(1080, 270, 50, 30);
 
-        ol43 = new JLabel("43");
+        ol43 = new JLabel();
         ol43.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol43.setBounds(1130, 270, 50, 30);
 
-        ol35 = new JLabel("35");
+        ol35 = new JLabel();
         ol35.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol35.setBounds(1230, 80, 200, 300);
 
-        ol53 = new JLabel("53");
+        ol53 = new JLabel();
         ol53.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol53.setBounds(1240, 60, 200, 300);
 
-        ol45 = new JLabel("45");
+        ol45 = new JLabel();
         ol45.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol45.setBounds(1210, 260, 200, 300);
 
-        ol54 = new JLabel("54");
+        ol54 = new JLabel();
         ol54.setFont(new Font("Verdana", Font.PLAIN, 18));
         ol54.setBounds(1180, 230, 200, 300);      
 
