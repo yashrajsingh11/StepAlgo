@@ -207,14 +207,14 @@ public class QuizMenu {
         b16.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSort();
+                new BellmanFordQuiz();
             }
         });
 
         b17.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new BubbleSort();
+                new FloydWarshallQuiz();
             }
         });
 
