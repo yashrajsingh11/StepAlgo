@@ -20,11 +20,9 @@ public class BellmanFord {
     int[][] input = new int[10][10];
     int[][] arr = new int[6][6];
     int[] mainArr = new int[600];
+    int[] temp = new int[600];
     int v, startingVertex;
-    int[] index2 = new int[60];
-    int[] index1 = new int[60];
-    int[] index = new int[60];
-    int counter = 0, mainCounter = 0, z = 0, ekAurCounter = 0;
+    int counter = 0, ekAurCounter = 0;
 
     public BellmanFord() {
         
@@ -324,7 +322,7 @@ public class BellmanFord {
         itf21.setBounds(250, 200, 50, 30);
         itf21.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-        itf22 = new JTextField("2");  
+        itf22 = new JTextField("-22");  
         itf22.setBounds(250, 250, 50, 30);
         itf22.setFont(new Font("Verdana", Font.PLAIN, 18));
 
@@ -539,158 +537,37 @@ public class BellmanFord {
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
-                mainCounter = mainCounter - 1;
-                ekAurCounter = ekAurCounter - 6;
+                ekAurCounter = ekAurCounter - v;
 
-                if(index1[mainCounter] == 0 && index[mainCounter] == 1) {
-                    ol1.setForeground(Color.red);
-                    ol2.setForeground(Color.red);
-                    ol01.setForeground(Color.red);
+                if(temp[0] != mainArr[ekAurCounter]) {
+                    prompt1.setForeground(Color.red);
+                } else {
+                    prompt1.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 2) {
-                    ol1.setForeground(Color.red);
-                    ol3.setForeground(Color.red);
-                    ol02.setForeground(Color.red);
+                if(temp[1] != mainArr[ekAurCounter + 1]) {
+                    prompt2.setForeground(Color.red);
+                } else {
+                    prompt2.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 3) {
-                    ol1.setForeground(Color.red);
-                    ol4.setForeground(Color.red);
-                    ol03.setForeground(Color.red);
+                if(temp[2] != mainArr[ekAurCounter + 2]) {
+                    prompt3.setForeground(Color.red);
+                } else {
+                    prompt3.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 4) {
-                    ol1.setForeground(Color.red);
-                    ol5.setForeground(Color.red);
-                    ol04.setForeground(Color.red);
+                if(temp[3] != mainArr[ekAurCounter + 3]) {
+                    prompt4.setForeground(Color.red);
+                } else {
+                    prompt4.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 5) {
-                    ol1.setForeground(Color.red);
-                    ol6.setForeground(Color.red);
-                    ol05.setForeground(Color.red);
+                if(temp[4] != mainArr[ekAurCounter + 4]) {
+                    prompt5.setForeground(Color.red);
+                } else {
+                    prompt5.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 0) {
-                    ol2.setForeground(Color.red);
-                    ol1.setForeground(Color.red);
-                    ol10.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 2) {
-                    ol2.setForeground(Color.red);
-                    ol3.setForeground(Color.red);
-                    ol12.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 3) {
-                    ol2.setForeground(Color.red);
-                    ol4.setForeground(Color.red);
-                    ol13.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 4) {
-                    ol2.setForeground(Color.red);
-                    ol5.setForeground(Color.red);
-                    ol14.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 5) {
-                    ol2.setForeground(Color.red);
-                    ol5.setForeground(Color.red);
-                    ol15.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 0) {
-                    ol3.setForeground(Color.red);
-                    ol1.setForeground(Color.red);
-                    ol20.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 1) {
-                    ol3.setForeground(Color.red);
-                    ol2.setForeground(Color.red);
-                    ol21.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 3) {
-                    ol3.setForeground(Color.red);
-                    ol4.setForeground(Color.red);
-                    ol23.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 4) {
-                    ol3.setForeground(Color.red);
-                    ol5.setForeground(Color.red);
-                    ol24.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 5) {
-                    ol3.setForeground(Color.red);
-                    ol6.setForeground(Color.red);
-                    ol25.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 0) {
-                    ol4.setForeground(Color.red);
-                    ol1.setForeground(Color.red);
-                    ol30.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 1) {
-                    ol4.setForeground(Color.red);
-                    ol2.setForeground(Color.red);
-                    ol31.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 2) {
-                    ol4.setForeground(Color.red);
-                    ol3.setForeground(Color.red);
-                    ol32.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 4) {
-                    ol4.setForeground(Color.red);
-                    ol5.setForeground(Color.red);
-                    ol34.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 5) {
-                    ol4.setForeground(Color.red);
-                    ol6.setForeground(Color.red);
-                    ol35.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 0) {
-                    ol5.setForeground(Color.red);
-                    ol1.setForeground(Color.red);
-                    ol40.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 1) {
-                    ol5.setForeground(Color.red);
-                    ol2.setForeground(Color.red);
-                    ol41.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 2) {
-                    ol5.setForeground(Color.red);
-                    ol3.setForeground(Color.red);
-                    ol42.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 3) {
-                    ol5.setForeground(Color.red);
-                    ol4.setForeground(Color.red);
-                    ol43.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 5) {
-                    ol5.setForeground(Color.red);
-                    ol6.setForeground(Color.red);
-                    ol45.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 0) {
-                    ol6.setForeground(Color.red);
-                    ol1.setForeground(Color.red);
-                    ol50.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 1) {
-                    ol6.setForeground(Color.red);
-                    ol2.setForeground(Color.red);
-                    ol51.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 2) {
-                    ol6.setForeground(Color.red);
-                    ol3.setForeground(Color.red);
-                    ol52.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 3) {
-                    ol6.setForeground(Color.red);
-                    ol4.setForeground(Color.red);
-                    ol53.setForeground(Color.red);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 4) {
-                    ol6.setForeground(Color.red);
-                    ol5.setForeground(Color.red);
-                    ol54.setForeground(Color.red);
+                if(temp[5] != mainArr[ekAurCounter + 5]) {
+                    prompt6.setForeground(Color.red);
+                } else {
+                    prompt6.setForeground(Color.black);
                 }
 
                 prompt1.setText("SD: " + Integer.toString(mainArr[ekAurCounter]));
@@ -700,164 +577,47 @@ public class BellmanFord {
                 prompt5.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 4]));
                 prompt6.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 5]));
 
+                for(int i = 0; i < v; i++) {
+                    temp[i] = mainArr[ekAurCounter + i];
+                }
 
-                check(mainCounter, counter);
+                check(ekAurCounter, counter);
             
             }
         });
 
         b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
-                if(index1[mainCounter] == 0 && index[mainCounter] == 1) {
-                    ol1.setForeground(Color.green);
-                    ol2.setForeground(Color.green);
-                    ol01.setForeground(Color.green);
+
+                if(temp[0] != mainArr[ekAurCounter]) {
+                    prompt1.setForeground(Color.green);
+                } else {
+                    prompt1.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 2) {
-                    ol1.setForeground(Color.green);
-                    ol3.setForeground(Color.green);
-                    ol02.setForeground(Color.green);
+                if(temp[1] != mainArr[ekAurCounter + 1]) {
+                    prompt2.setForeground(Color.green);
+                } else {
+                    prompt2.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 3) {
-                    ol1.setForeground(Color.green);
-                    ol4.setForeground(Color.green);
-                    ol03.setForeground(Color.green);
+                if(temp[2] != mainArr[ekAurCounter + 2]) {
+                    prompt3.setForeground(Color.green);
+                } else {
+                    prompt3.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 4) {
-                    ol1.setForeground(Color.green);
-                    ol5.setForeground(Color.green);
-                    ol04.setForeground(Color.green);
+                if(temp[3] != mainArr[ekAurCounter + 3]) {
+                    prompt4.setForeground(Color.green);
+                } else {
+                    prompt4.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 0 && index[mainCounter] == 5) {
-                    ol1.setForeground(Color.green);
-                    ol6.setForeground(Color.green);
-                    ol05.setForeground(Color.green);
+                if(temp[4] != mainArr[ekAurCounter + 4]) {
+                    prompt5.setForeground(Color.green);
+                } else {
+                    prompt5.setForeground(Color.black);
                 }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 0) {
-                    ol2.setForeground(Color.green);
-                    ol1.setForeground(Color.green);
-                    ol10.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 2) {
-                    ol2.setForeground(Color.green);
-                    ol3.setForeground(Color.green);
-                    ol12.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 3) {
-                    ol2.setForeground(Color.green);
-                    ol4.setForeground(Color.green);
-                    ol13.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 4) {
-                    ol2.setForeground(Color.green);
-                    ol5.setForeground(Color.green);
-                    ol14.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 1 && index[mainCounter] == 5) {
-                    ol2.setForeground(Color.green);
-                    ol5.setForeground(Color.green);
-                    ol15.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 0) {
-                    ol3.setForeground(Color.green);
-                    ol1.setForeground(Color.green);
-                    ol20.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 1) {
-                    ol3.setForeground(Color.green);
-                    ol2.setForeground(Color.green);
-                    ol21.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 3) {
-                    ol3.setForeground(Color.green);
-                    ol4.setForeground(Color.green);
-                    ol23.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 4) {
-                    ol3.setForeground(Color.green);
-                    ol5.setForeground(Color.green);
-                    ol24.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 2 && index[mainCounter] == 5) {
-                    ol3.setForeground(Color.green);
-                    ol6.setForeground(Color.green);
-                    ol25.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 0) {
-                    ol4.setForeground(Color.green);
-                    ol1.setForeground(Color.green);
-                    ol30.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 1) {
-                    ol4.setForeground(Color.green);
-                    ol2.setForeground(Color.green);
-                    ol31.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 2) {
-                    ol4.setForeground(Color.green);
-                    ol3.setForeground(Color.green);
-                    ol32.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 4) {
-                    ol4.setForeground(Color.green);
-                    ol5.setForeground(Color.green);
-                    ol34.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 3 && index[mainCounter] == 5) {
-                    ol4.setForeground(Color.green);
-                    ol6.setForeground(Color.green);
-                    ol35.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 0) {
-                    ol5.setForeground(Color.green);
-                    ol1.setForeground(Color.green);
-                    ol40.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 1) {
-                    ol5.setForeground(Color.green);
-                    ol2.setForeground(Color.green);
-                    ol41.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 2) {
-                    ol5.setForeground(Color.green);
-                    ol3.setForeground(Color.green);
-                    ol42.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 3) {
-                    ol5.setForeground(Color.green);
-                    ol4.setForeground(Color.green);
-                    ol43.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 4 && index[mainCounter] == 5) {
-                    ol5.setForeground(Color.green);
-                    ol6.setForeground(Color.green);
-                    ol45.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 0) {
-                    ol6.setForeground(Color.green);
-                    ol1.setForeground(Color.green);
-                    ol50.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 1) {
-                    ol6.setForeground(Color.green);
-                    ol2.setForeground(Color.green);
-                    ol51.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 2) {
-                    ol6.setForeground(Color.green);
-                    ol3.setForeground(Color.green);
-                    ol52.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 3) {
-                    ol6.setForeground(Color.green);
-                    ol4.setForeground(Color.green);
-                    ol53.setForeground(Color.green);
-                }
-                if(index1[mainCounter] == 5 && index[mainCounter] == 4) {
-                    ol6.setForeground(Color.green);
-                    ol5.setForeground(Color.green);
-                    ol54.setForeground(Color.green);
+                if(temp[5] != mainArr[ekAurCounter + 5]) {
+                    prompt6.setForeground(Color.green);
+                } else {
+                    prompt6.setForeground(Color.black);
                 }
 
                 prompt1.setText("SD: " + Integer.toString(mainArr[ekAurCounter]));
@@ -867,9 +627,12 @@ public class BellmanFord {
                 prompt5.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 4]));
                 prompt6.setText("SD: " + Integer.toString(mainArr[ekAurCounter + 5]));
 
-                mainCounter = mainCounter + 1;
+                for(int i = 0; i < v; i++) {
+                    temp[i] = mainArr[ekAurCounter + i];
+                }
+
                 ekAurCounter = ekAurCounter + v;
-                check(mainCounter, counter);
+                check(ekAurCounter, counter);
             
             }
         });
@@ -939,22 +702,21 @@ public class BellmanFord {
 
                     for(int i = 0; i < v; i++) {
                         if(i == startingVertex) {
-                            mainArr[z] = 0;
-                            z = z + 1;
+                            mainArr[counter] = 0;
+                            counter = counter + 1;
                         } else {
-                            mainArr[z] = 100;
-                            z = z + 1;
+                            mainArr[counter] = 100;
+                            counter = counter + 1;
                         }
                     }
 
-                    index[counter] = -1;
-                    index1[counter] = -1;
-                    index2[counter] = -1;
-                    counter = counter + 1;
-
                     myBellmanFord(arr, v, startingVertex);
 
-                    check(mainCounter, counter);
+                    for(int i = 0; i < v; i++) {
+                        temp[i] = mainArr[i];
+                    }
+
+                    check(ekAurCounter, counter);
                     ol1.setText("0");
                     ol2.setText("1");
                     ol3.setText("2");
@@ -1023,7 +785,7 @@ public class BellmanFord {
                 itf19.setText("5");
                 itf20.setText("0");
                 itf21.setText("1");
-                itf22.setText("2");
+                itf22.setText("-22");
                 itf23.setText("4");
                 itf24.setText("3");
                 itf25.setText("2");
@@ -1112,11 +874,9 @@ public class BellmanFord {
                 ol52.setForeground(Color.black);
                 ol53.setForeground(Color.black);
                 ol54.setForeground(Color.black);
-                mainCounter = 0;
                 counter = 0;
-                z = 0;
                 ekAurCounter = 0;
-                check(mainCounter, counter);
+                check(ekAurCounter, counter);
                 b5.setEnabled(true);
                 b6.setEnabled(false);
                 itf1.setEditable(true);
@@ -1468,58 +1228,6 @@ public class BellmanFord {
         }
     }
 
-    // int minKey(int key[], boolean visited[], int v) {
-    //     int min = 1000000000;
-    //     int index = 0;
-    //     for(int i = 0; i < v; i++) {
-    //         if(!visited[i] && key[i] < min) {
-    //             min = key[i];
-    //             index = i;
-    //         }
-    //     }
-    //     return index;
-    // }
-
-    // void myDjikstra(int arr[][], int v, int s) {
-    //     int parent[] = new int[v];
-    //     int key[] = new int[v];
-    //     boolean visited[] = new boolean[v];
-    //     int[] src = new int[v];
-    //     int[] dest = new int[v];
-
-    //     for(int i = 0; i < v; i++) {
-    //         key[i] = 100;
-    //         visited[i] = false;
-    //         parent[i] = -1;
-    //     }
-    //     key[s] = 0;
-
-    //     for(int i = 0; i < v; i++) {
-    //         int in = minKey(key,visited,v);
-    //         visited[in] = true;
-    //         for(int j = 0; j < v; j++) {
-    //             if(arr[in][j] != 0 && !visited[j] && key[in] != 100 && arr[in][j] + key[in] < key[j]) {
-    //                 parent[j] = in;
-    //                 key[j] = key[in] + arr[in][j];
-    //             }   
-    //         }
-    //         for(int l = 0; l < v; l++) {
-    //             mainArr[z] = key[l];
-    //             z = z + 1;
-    //         }
-    //         dest[i] = in;
-    //         src[i] = parent[in];
-    //     }
-
-    //     int dist = 0;
-    //     for(int i = 1; i < v; i++) {
-    //         index[counter] = src[i];
-    //         index1[counter] = dest[i];
-    //         index2[counter] = key[dest[i]];
-    //         counter = counter + 1;
-    //     }
-    // }
-
     public void myBellmanFord(int arr[][], int v, int s) {
         int key[] = new int[v];
         for(int i = 0; i < v; i++) {
@@ -1535,15 +1243,10 @@ public class BellmanFord {
                     }
                 }
                 for (int l = 0; l < v; l++) {
-                    System.out.print(key[l] + " ");
+                    mainArr[counter] = key[l];
+                    counter = counter + 1;
                 }
-                System.out.println();
             }
         }
-
-        for(int i = 0; i < v; i++) {
-            System.out.println(s + " - " + i + " - " + key[i] );
-        }
     }
-
 }

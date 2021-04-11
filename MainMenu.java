@@ -6,7 +6,7 @@ public class MainMenu {
 	
 	JFrame f;
 	JLabel l, l1, l2, l3;
-	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17;
 	
 	public MainMenu() {
 	
@@ -68,9 +68,9 @@ public class MainMenu {
         b10.setFont(new Font("Verdana", Font.PLAIN, 18));
         b10.setBounds(575, 250, 200, 40);
 
-        b18 = new JButton("Jump Search");  
-        b18.setFont(new Font("Verdana", Font.PLAIN, 18));
-        b18.setBounds(575, 300, 200, 40);
+        b17 = new JButton("Jump Search");  
+        b17.setFont(new Font("Verdana", Font.PLAIN, 18));
+        b17.setBounds(575, 300, 200, 40);
 
         b11 = new JButton("BFS");  
         b11.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -95,10 +95,6 @@ public class MainMenu {
         b16 = new JButton("Bellman-Ford");  
         b16.setFont(new Font("Verdana", Font.PLAIN, 18));
         b16.setBounds(1000, 450, 200, 40);
-
-        b17 = new JButton("Floyd-Warshall");  
-        b17.setFont(new Font("Verdana", Font.PLAIN, 18));
-        b17.setBounds(1000, 500, 200, 40);
 
     	b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -214,13 +210,6 @@ public class MainMenu {
         b17.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                new FloydWarshall();
-            }
-        });
-
-        b18.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                f.dispose();
                 new JumpSearch();
             }
         });
@@ -247,7 +236,6 @@ public class MainMenu {
         f.add(b15);
         f.add(b16);
         f.add(b17);
-        f.add(b18);
 		f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		f.setLayout(null);
 		f.setVisible(true);
